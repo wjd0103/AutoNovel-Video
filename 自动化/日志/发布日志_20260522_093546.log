@@ -1,0 +1,213 @@
+2026-05-22 09:35:46,471 [INFO] 加载配置: 发布配置-万古神龙.yaml
+2026-05-22 09:35:46,473 [INFO] 当前项目: 万古神龙
+2026-05-22 09:35:46,473 [INFO] 章节目录: /Users/vincent/Documents/小说模型/万古神龙：我的血脉全靠吞/执行/章节
+2026-05-22 09:35:46,743 [INFO] Chrome 用户数据目录: /Users/vincent/Documents/小说模型/自动化/chrome_profiles/万古神龙（作品: 万古神龙：我的血脉全靠吞）
+2026-05-22 09:35:46,743 [INFO] Chrome profile 锁文件已清理
+2026-05-22 09:35:50,487 [INFO] Chrome 浏览器已启动（已登录模式）
+2026-05-22 09:35:50,488 [INFO] 正在打开作家工作台...
+2026-05-22 09:35:58,347 [INFO] 已进入作家工作台
+2026-05-22 09:35:58,348 [INFO] 正在发布: 第67章 冻土之约
+2026-05-22 09:36:06,935 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7642523905122386494
+2026-05-22 09:36:07,225 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-22 09:36:07,822 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_67.html
+2026-05-22 09:36:07,822 [INFO] 填充发布表单...
+2026-05-22 09:36:08,814 [INFO]   章节号已填入: 67
+2026-05-22 09:36:09,531 [INFO]   标题已填入: 冻土之约
+2026-05-22 09:36:09,575 [INFO]   正文已注入 (3477 字)
+2026-05-22 09:36:15,632 [INFO]   已点击: 下一步
+2026-05-22 09:36:21,635 [INFO] 等待下一步后的弹窗...
+2026-05-22 09:36:24,672 [INFO]   已点击: 提交
+2026-05-22 09:36:27,710 [INFO]   已点击: 全面检测
+2026-05-22 09:36:30,714 [INFO] 等待内容检测完成...
+2026-05-22 09:36:30,896 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:36:31,355 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:36:31,355 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:36:31,626 [INFO]   AI 声明已勾选 (fallback)
+2026-05-22 09:36:32,271 [INFO]   已点击: 确认发布
+2026-05-22 09:36:36,275 [INFO] ✓ 第67章《冻土之约》发布完成
+2026-05-22 09:36:39,280 [INFO] 正在发布: 第68章 地底祭坛
+2026-05-22 09:36:47,670 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7642524078598783550
+2026-05-22 09:36:47,787 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-22 09:36:48,288 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_68.html
+2026-05-22 09:36:48,288 [INFO] 填充发布表单...
+2026-05-22 09:36:49,142 [INFO]   章节号已填入: 68
+2026-05-22 09:36:49,939 [INFO]   标题已填入: 地底祭坛
+2026-05-22 09:36:49,975 [INFO]   正文已注入 (3346 字)
+2026-05-22 09:36:56,029 [INFO]   已点击: 下一步
+2026-05-22 09:37:02,032 [INFO] 等待下一步后的弹窗...
+2026-05-22 09:37:08,107 [INFO]   已点击: 全面检测
+2026-05-22 09:37:11,110 [INFO] 等待内容检测完成...
+2026-05-22 09:37:11,243 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:37:11,733 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:37:11,734 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:37:11,969 [INFO]   AI 声明已勾选 (fallback)
+2026-05-22 09:37:12,602 [INFO]   已点击: 确认发布
+2026-05-22 09:37:16,604 [INFO] ✓ 第68章《地底祭坛》发布完成
+2026-05-22 09:37:19,611 [INFO] 正在发布: 第69章 血引之门
+2026-05-22 09:37:27,985 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7642524251290878526
+2026-05-22 09:37:28,101 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-22 09:37:28,748 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_69.html
+2026-05-22 09:37:28,748 [INFO] 填充发布表单...
+2026-05-22 09:37:29,566 [INFO]   章节号已填入: 69
+2026-05-22 09:37:30,334 [INFO]   标题已填入: 血引之门
+2026-05-22 09:37:30,378 [INFO]   正文已注入 (3388 字)
+2026-05-22 09:37:36,419 [INFO]   已点击: 下一步
+2026-05-22 09:37:42,424 [INFO] 等待下一步后的弹窗...
+2026-05-22 09:37:45,462 [INFO]   已点击: 提交
+2026-05-22 09:37:48,500 [INFO]   已点击: 全面检测
+2026-05-22 09:37:51,503 [INFO] 等待内容检测完成...
+2026-05-22 09:37:51,744 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:37:52,317 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:37:52,317 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:37:52,595 [INFO]   AI 声明已勾选 (fallback)
+2026-05-22 09:37:53,245 [INFO]   已点击: 确认发布
+2026-05-22 09:37:57,247 [INFO] ✓ 第69章《血引之门》发布完成
+2026-05-22 09:38:00,253 [INFO] 正在发布: 第70章 始祖之血
+2026-05-22 09:38:08,700 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7642524426776363582
+2026-05-22 09:38:08,812 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-22 09:38:09,389 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_70.html
+2026-05-22 09:38:09,389 [INFO] 填充发布表单...
+2026-05-22 09:38:10,244 [INFO]   章节号已填入: 70
+2026-05-22 09:38:11,001 [INFO]   标题已填入: 始祖之血
+2026-05-22 09:38:11,042 [INFO]   正文已注入 (3386 字)
+2026-05-22 09:38:17,091 [INFO]   已点击: 下一步
+2026-05-22 09:38:23,096 [INFO] 等待下一步后的弹窗...
+2026-05-22 09:38:26,131 [INFO]   已点击: 提交
+2026-05-22 09:38:29,165 [INFO]   已点击: 全面检测
+2026-05-22 09:38:32,169 [INFO] 等待内容检测完成...
+2026-05-22 09:38:32,307 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:38:32,657 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:38:32,657 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-22 09:38:32,914 [INFO]   AI 声明已勾选 (fallback)
+2026-05-22 09:38:33,553 [INFO]   已点击: 确认发布
+2026-05-22 09:38:37,555 [INFO] ✓ 第70章《始祖之血》发布完成
+2026-05-22 09:38:40,560 [INFO] 正在发布: 第71章 猎令再临
+2026-05-22 09:38:49,147 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7642524600223400510
+2026-05-22 09:38:49,256 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-22 09:38:49,873 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_71.html
+2026-05-22 09:38:49,873 [INFO] 填充发布表单...
+2026-05-22 09:38:50,749 [INFO]   章节号已填入: 71
+2026-05-22 09:38:51,493 [INFO]   标题已填入: 猎令再临
+2026-05-22 09:38:51,533 [INFO]   正文已注入 (3341 字)
+2026-05-22 09:38:57,556 [ERROR] 点击「下一步」失败
+2026-05-22 09:39:00,559 [INFO] 正在发布: 第72章 倒戈之信
+2026-05-22 09:39:00,562 [ERROR] 发布第72章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x00000001036685d8 chromedriver + 6821336
+1   chromedriver                        0x000000010365fc5a chromedriver + 6786138
+2   chromedriver                        0x00000001030559d5 chromedriver + 453077
+3   chromedriver                        0x0000000103028d18 chromedriver + 269592
+4   chromedriver                        0x00000001030d7dd8 chromedriver + 986584
+5   chromedriver                        0x00000001030f21f8 chromedriver + 1094136
+6   chromedriver                        0x000000010309c4b4 chromedriver + 742580
+7   chromedriver                        0x000000010309d261 chromedriver + 746081
+8   chromedriver                        0x00000001036201f7 chromedriver + 6525431
+9   chromedriver                        0x0000000103624686 chromedriver + 6542982
+10  chromedriver                        0x00000001035ffefb chromedriver + 6393595
+11  chromedriver                        0x00000001036250f8 chromedriver + 6545656
+12  chromedriver                        0x00000001035ef440 chromedriver + 6325312
+13  chromedriver                        0x000000010364c738 chromedriver + 6707000
+14  chromedriver                        0x000000010364c8f2 chromedriver + 6707442
+15  chromedriver                        0x000000010365f871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 09:39:03,567 [INFO] 正在发布: 第73章 夜遁冻土
+2026-05-22 09:39:03,569 [ERROR] 发布第73章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x00000001036685d8 chromedriver + 6821336
+1   chromedriver                        0x000000010365fc5a chromedriver + 6786138
+2   chromedriver                        0x00000001030559d5 chromedriver + 453077
+3   chromedriver                        0x0000000103028d18 chromedriver + 269592
+4   chromedriver                        0x00000001030d7dd8 chromedriver + 986584
+5   chromedriver                        0x00000001030f21f8 chromedriver + 1094136
+6   chromedriver                        0x000000010309c4b4 chromedriver + 742580
+7   chromedriver                        0x000000010309d261 chromedriver + 746081
+8   chromedriver                        0x00000001036201f7 chromedriver + 6525431
+9   chromedriver                        0x0000000103624686 chromedriver + 6542982
+10  chromedriver                        0x00000001035ffefb chromedriver + 6393595
+11  chromedriver                        0x00000001036250f8 chromedriver + 6545656
+12  chromedriver                        0x00000001035ef440 chromedriver + 6325312
+13  chromedriver                        0x000000010364c738 chromedriver + 6707000
+14  chromedriver                        0x000000010364c8f2 chromedriver + 6707442
+15  chromedriver                        0x000000010365f871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 09:39:06,573 [INFO] 正在发布: 第74章 三指岩
+2026-05-22 09:39:06,575 [ERROR] 发布第74章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x00000001036685d8 chromedriver + 6821336
+1   chromedriver                        0x000000010365fc5a chromedriver + 6786138
+2   chromedriver                        0x00000001030559d5 chromedriver + 453077
+3   chromedriver                        0x0000000103028d18 chromedriver + 269592
+4   chromedriver                        0x00000001030d7dd8 chromedriver + 986584
+5   chromedriver                        0x00000001030f21f8 chromedriver + 1094136
+6   chromedriver                        0x000000010309c4b4 chromedriver + 742580
+7   chromedriver                        0x000000010309d261 chromedriver + 746081
+8   chromedriver                        0x00000001036201f7 chromedriver + 6525431
+9   chromedriver                        0x0000000103624686 chromedriver + 6542982
+10  chromedriver                        0x00000001035ffefb chromedriver + 6393595
+11  chromedriver                        0x00000001036250f8 chromedriver + 6545656
+12  chromedriver                        0x00000001035ef440 chromedriver + 6325312
+13  chromedriver                        0x000000010364c738 chromedriver + 6707000
+14  chromedriver                        0x000000010364c8f2 chromedriver + 6707442
+15  chromedriver                        0x000000010365f871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 09:39:09,578 [INFO] 正在发布: 第75章 中转站密会
+2026-05-22 09:39:09,579 [ERROR] 发布第75章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x00000001036685d8 chromedriver + 6821336
+1   chromedriver                        0x000000010365fc5a chromedriver + 6786138
+2   chromedriver                        0x00000001030559d5 chromedriver + 453077
+3   chromedriver                        0x0000000103028d18 chromedriver + 269592
+4   chromedriver                        0x00000001030d7dd8 chromedriver + 986584
+5   chromedriver                        0x00000001030f21f8 chromedriver + 1094136
+6   chromedriver                        0x000000010309c4b4 chromedriver + 742580
+7   chromedriver                        0x000000010309d261 chromedriver + 746081
+8   chromedriver                        0x00000001036201f7 chromedriver + 6525431
+9   chromedriver                        0x0000000103624686 chromedriver + 6542982
+10  chromedriver                        0x00000001035ffefb chromedriver + 6393595
+11  chromedriver                        0x00000001036250f8 chromedriver + 6545656
+12  chromedriver                        0x00000001035ef440 chromedriver + 6325312
+13  chromedriver                        0x000000010364c738 chromedriver + 6707000
+14  chromedriver                        0x000000010364c8f2 chromedriver + 6707442
+15  chromedriver                        0x000000010365f871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 09:39:12,585 [INFO] 正在发布: 第76章 涂黑的名字
+2026-05-22 09:39:12,586 [ERROR] 发布第76章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x00000001036685d8 chromedriver + 6821336
+1   chromedriver                        0x000000010365fc5a chromedriver + 6786138
+2   chromedriver                        0x00000001030559d5 chromedriver + 453077
+3   chromedriver                        0x0000000103028d18 chromedriver + 269592
+4   chromedriver                        0x00000001030d7dd8 chromedriver + 986584
+5   chromedriver                        0x00000001030f21f8 chromedriver + 1094136
+6   chromedriver                        0x000000010309c4b4 chromedriver + 742580
+7   chromedriver                        0x000000010309d261 chromedriver + 746081
+8   chromedriver                        0x00000001036201f7 chromedriver + 6525431
+9   chromedriver                        0x0000000103624686 chromedriver + 6542982
+10  chromedriver                        0x00000001035ffefb chromedriver + 6393595
+11  chromedriver                        0x00000001036250f8 chromedriver + 6545656
+12  chromedriver                        0x00000001035ef440 chromedriver + 6325312
+13  chromedriver                        0x000000010364c738 chromedriver + 6707000
+14  chromedriver                        0x000000010364c8f2 chromedriver + 6707442
+15  chromedriver                        0x000000010365f871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 09:39:15,904 [INFO] 浏览器已关闭

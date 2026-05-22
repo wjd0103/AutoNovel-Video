@@ -1,0 +1,53 @@
+characters:
+- gender: male
+  name: 林越
+  reference_image: output/images/scene_04.png
+  role: 男主角
+  visual_desc: '林越，年轻男性，黑色短发利落，眼神冷静锐利，面容清瘦但轮廓分明。
+
+    身穿深灰色战术夹克和黑色长裤，腰侧挂着一把高频震荡匕首（刀柄带蓝色光晕）。
+
+    身高约178cm，体型偏瘦但行动敏捷。左肩背着一个深色战术背包。
+
+    '
+  voice_id: male_lead
+  voice_name: zh-CN-YunxiNeural
+- gender: female
+  name: 赵绫
+  reference_image: output/images/scene_03.png
+  role: 女主角
+  visual_desc: '赵绫，年轻女性，棕色短发刚到耳际，经常有几缕散落下来贴在嘴角。
+
+    身穿灰绿色战术服，头戴防弹纤维改制的深灰色帽子（可正戴或反戴）。
+
+    背着一把狙击枪，枪身有磨损痕迹。身高约165cm，身手敏捷。
+
+    额头有一道被护目镜边缘压出的细长红印。
+
+    '
+  voice_id: female_lead
+  voice_name: zh-CN-XiaoxiaoNeural
+- gender: male
+  name: 陆明远
+  reference_image: output/images/scene_11.png
+  role: 男配角
+  visual_desc: '陆明远，中年男性，穿着整洁的深蓝色安全区制服，肩上别着金属徽章。
+
+    面部线条硬朗，表情严肃，说话时带有不容置疑的权威感。
+
+    '
+  voice_id: supporting_male
+  voice_name: zh-CN-YunyangNeural
+- gender: female
+  name: 沈薇
+  reference_image: output/images/scene_13.png
+  role: 女配角
+  visual_desc: '沈薇，年轻女性，戴细框眼镜，中长发整齐地束在脑后。
+
+    身穿白色实验室外套，手持便携式全息投影仪。表情冷静，语速平稳。
+
+    给人一种精确到毫秒的科研工作者印象。
+
+    '
+  voice_id: supporting_female
+  voice_name: zh-CN-XiaoyiNeural

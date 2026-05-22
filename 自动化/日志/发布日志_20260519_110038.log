@@ -1,0 +1,193 @@
+2026-05-19 11:00:38,348 [INFO] 加载配置: 发布配置-万古神龙.yaml
+2026-05-19 11:00:38,351 [INFO] 当前项目: 万古神龙
+2026-05-19 11:00:38,351 [INFO] 章节目录: /Users/vincent/Documents/小说模型/万古神龙：我的血脉全靠吞/执行/章节
+2026-05-19 11:00:38,812 [INFO] Chrome 用户数据目录: /Users/vincent/Documents/小说模型/自动化/chrome_profiles/万古神龙（作品: 万古神龙：我的血脉全靠吞）
+2026-05-19 11:00:38,813 [INFO] Chrome profile 锁文件已清理
+2026-05-19 11:00:42,366 [INFO] Chrome 浏览器已启动（已登录模式）
+2026-05-19 11:00:42,366 [INFO] 正在打开作家工作台...
+2026-05-19 11:00:50,278 [INFO] 已进入作家工作台
+2026-05-19 11:00:50,280 [INFO] 正在发布: 第37章 凤羽帖
+2026-05-19 11:00:58,632 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7641432517400085054
+2026-05-19 11:00:58,810 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-19 11:00:59,360 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_37.html
+2026-05-19 11:00:59,360 [INFO] 填充发布表单...
+2026-05-19 11:01:00,369 [INFO]   章节号已填入: 37
+2026-05-19 11:01:01,098 [INFO]   标题已填入: 凤羽帖
+2026-05-19 11:01:01,154 [INFO]   正文已注入 (3050 字)
+2026-05-19 11:01:07,219 [INFO]   已点击: 下一步
+2026-05-19 11:01:13,223 [INFO] 等待下一步后的弹窗...
+2026-05-19 11:01:16,264 [INFO]   已点击: 提交
+2026-05-19 11:01:19,317 [INFO]   已点击: 全面检测
+2026-05-19 11:01:22,327 [INFO] 等待内容检测完成...
+2026-05-19 11:01:22,476 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:01:22,747 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:01:22,747 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:01:22,978 [INFO]   AI 声明已勾选 (fallback)
+2026-05-19 11:01:23,646 [INFO]   已点击: 确认发布
+2026-05-19 11:01:27,655 [INFO] ✓ 第37章《凤羽帖》发布完成
+2026-05-19 11:01:30,664 [INFO] 正在发布: 第38章 问剑
+2026-05-19 11:01:39,049 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7641432691090407998
+2026-05-19 11:01:39,190 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-19 11:01:39,687 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_38.html
+2026-05-19 11:01:39,687 [INFO] 填充发布表单...
+2026-05-19 11:01:40,488 [INFO]   章节号已填入: 38
+2026-05-19 11:01:41,246 [INFO]   标题已填入: 问剑
+2026-05-19 11:01:41,287 [INFO]   正文已注入 (2759 字)
+2026-05-19 11:01:47,346 [INFO]   已点击: 下一步
+2026-05-19 11:01:53,353 [INFO] 等待下一步后的弹窗...
+2026-05-19 11:01:56,408 [INFO]   已点击: 提交
+2026-05-19 11:01:59,451 [INFO]   已点击: 全面检测
+2026-05-19 11:02:02,459 [INFO] 等待内容检测完成...
+2026-05-19 11:02:02,606 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:02:02,978 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:02:02,978 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:02:03,220 [INFO]   AI 声明已勾选 (fallback)
+2026-05-19 11:02:03,904 [INFO]   已点击: 确认发布
+2026-05-19 11:02:07,910 [INFO] ✓ 第38章《问剑》发布完成
+2026-05-19 11:02:10,922 [INFO] 正在发布: 第39章 龙骨
+2026-05-19 11:02:19,529 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7641432864747160126
+2026-05-19 11:02:19,642 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-19 11:02:20,142 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_39.html
+2026-05-19 11:02:20,142 [INFO] 填充发布表单...
+2026-05-19 11:02:20,927 [INFO]   章节号已填入: 39
+2026-05-19 11:02:21,693 [INFO]   标题已填入: 龙骨
+2026-05-19 11:02:21,735 [INFO]   正文已注入 (2883 字)
+2026-05-19 11:02:27,815 [INFO]   已点击: 下一步
+2026-05-19 11:02:33,823 [INFO] 等待下一步后的弹窗...
+2026-05-19 11:02:39,941 [INFO]   已点击: 全面检测
+2026-05-19 11:02:42,951 [INFO] 等待内容检测完成...
+2026-05-19 11:02:43,135 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:02:43,378 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:02:43,378 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:02:43,612 [INFO]   AI 声明已勾选 (fallback)
+2026-05-19 11:02:44,309 [INFO]   已点击: 确认发布
+2026-05-19 11:02:48,316 [INFO] ✓ 第39章《龙骨》发布完成
+2026-05-19 11:02:51,330 [INFO] 正在发布: 第40章 狻猊
+2026-05-19 11:02:59,721 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7641433037208568382
+2026-05-19 11:02:59,837 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-19 11:03:00,337 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_40.html
+2026-05-19 11:03:00,337 [INFO] 填充发布表单...
+2026-05-19 11:03:01,190 [INFO]   章节号已填入: 40
+2026-05-19 11:03:01,909 [INFO]   标题已填入: 狻猊
+2026-05-19 11:03:01,953 [INFO]   正文已注入 (2873 字)
+2026-05-19 11:03:08,041 [INFO]   已点击: 下一步
+2026-05-19 11:03:14,047 [INFO] 等待下一步后的弹窗...
+2026-05-19 11:03:17,105 [INFO]   已点击: 提交
+2026-05-19 11:03:20,162 [INFO]   已点击: 全面检测
+2026-05-19 11:03:23,171 [INFO] 等待内容检测完成...
+2026-05-19 11:03:23,317 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:03:23,679 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:03:23,679 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:03:23,936 [INFO]   AI 声明已勾选 (fallback)
+2026-05-19 11:03:24,595 [INFO]   已点击: 确认发布
+2026-05-19 11:03:28,606 [INFO] ✓ 第40章《狻猊》发布完成
+2026-05-19 11:03:31,622 [INFO] 正在发布: 第41章 兽夹
+2026-05-19 11:03:40,004 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7641433210320060990
+2026-05-19 11:03:40,210 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-19 11:03:40,730 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_41.html
+2026-05-19 11:03:40,730 [INFO] 填充发布表单...
+2026-05-19 11:03:41,549 [INFO]   章节号已填入: 41
+2026-05-19 11:03:42,268 [INFO]   标题已填入: 兽夹
+2026-05-19 11:03:42,307 [INFO]   正文已注入 (3189 字)
+2026-05-19 11:03:48,403 [INFO]   已点击: 下一步
+2026-05-19 11:03:54,411 [INFO] 等待下一步后的弹窗...
+2026-05-19 11:03:57,470 [INFO]   已点击: 提交
+2026-05-19 11:04:00,533 [INFO]   已点击: 全面检测
+2026-05-19 11:04:03,543 [INFO] 等待内容检测完成...
+2026-05-19 11:04:03,687 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:04:03,919 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:04:03,919 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:04:04,179 [INFO]   AI 声明已勾选 (fallback)
+2026-05-19 11:04:04,847 [INFO]   已点击: 确认发布
+2026-05-19 11:04:08,856 [INFO] ✓ 第41章《兽夹》发布完成
+2026-05-19 11:04:11,869 [INFO] 正在发布: 第42章 决赛
+2026-05-19 11:04:20,285 [INFO]   当前URL: https://fanqienovel.com/main/writer/7639950067528387646/publish/7641433383146373694
+2026-05-19 11:04:20,403 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-19 11:04:20,929 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_42.html
+2026-05-19 11:04:20,930 [INFO] 填充发布表单...
+2026-05-19 11:04:21,745 [INFO]   章节号已填入: 42
+2026-05-19 11:04:22,503 [INFO]   标题已填入: 决赛
+2026-05-19 11:04:22,559 [INFO]   正文已注入 (3662 字)
+2026-05-19 11:04:28,620 [INFO]   已点击: 下一步
+2026-05-19 11:04:34,626 [INFO] 等待下一步后的弹窗...
+2026-05-19 11:04:37,664 [INFO]   已点击: 提交
+2026-05-19 11:04:40,728 [INFO]   已点击: 全面检测
+2026-05-19 11:04:43,731 [INFO] 等待内容检测完成...
+2026-05-19 11:04:43,896 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:04:44,256 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:04:44,256 [INFO]   发布设置弹窗按钮: ['存草稿', '下一步', '取消', '确认发布']
+2026-05-19 11:04:44,506 [INFO]   已点击: 发布
+2026-05-19 11:04:48,510 [INFO] ✓ 第42章《决赛》发布完成
+2026-05-19 11:04:51,518 [INFO] 正在发布: 第43章 退路
+2026-05-19 11:05:00,078 [INFO]   当前URL: None
+2026-05-19 11:05:00,080 [ERROR] 发布第43章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=147.0.7727.138)
+Stacktrace:
+0   chromedriver                        0x000000010fdd65d8 chromedriver + 6821336
+1   chromedriver                        0x000000010fdcdc5a chromedriver + 6786138
+2   chromedriver                        0x000000010f7c39d5 chromedriver + 453077
+3   chromedriver                        0x000000010f796d18 chromedriver + 269592
+4   chromedriver                        0x000000010f845dd8 chromedriver + 986584
+5   chromedriver                        0x000000010f8601f8 chromedriver + 1094136
+6   chromedriver                        0x000000010f80a4b4 chromedriver + 742580
+7   chromedriver                        0x000000010f80b261 chromedriver + 746081
+8   chromedriver                        0x000000010fd8e1f7 chromedriver + 6525431
+9   chromedriver                        0x000000010fd92686 chromedriver + 6542982
+10  chromedriver                        0x000000010fd6defb chromedriver + 6393595
+11  chromedriver                        0x000000010fd930f8 chromedriver + 6545656
+12  chromedriver                        0x000000010fd5d440 chromedriver + 6325312
+13  chromedriver                        0x000000010fdba738 chromedriver + 6707000
+14  chromedriver                        0x000000010fdba8f2 chromedriver + 6707442
+15  chromedriver                        0x000000010fdcd871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-19 11:05:03,086 [INFO] 正在发布: 第44章 梅下灯
+2026-05-19 11:05:03,090 [ERROR] 发布第44章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=147.0.7727.138)
+Stacktrace:
+0   chromedriver                        0x000000010fdd65d8 chromedriver + 6821336
+1   chromedriver                        0x000000010fdcdc5a chromedriver + 6786138
+2   chromedriver                        0x000000010f7c39d5 chromedriver + 453077
+3   chromedriver                        0x000000010f796d18 chromedriver + 269592
+4   chromedriver                        0x000000010f845dd8 chromedriver + 986584
+5   chromedriver                        0x000000010f8601f8 chromedriver + 1094136
+6   chromedriver                        0x000000010f80a4b4 chromedriver + 742580
+7   chromedriver                        0x000000010f80b261 chromedriver + 746081
+8   chromedriver                        0x000000010fd8e1f7 chromedriver + 6525431
+9   chromedriver                        0x000000010fd92686 chromedriver + 6542982
+10  chromedriver                        0x000000010fd6defb chromedriver + 6393595
+11  chromedriver                        0x000000010fd930f8 chromedriver + 6545656
+12  chromedriver                        0x000000010fd5d440 chromedriver + 6325312
+13  chromedriver                        0x000000010fdba738 chromedriver + 6707000
+14  chromedriver                        0x000000010fdba8f2 chromedriver + 6707442
+15  chromedriver                        0x000000010fdcd871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-19 11:05:06,098 [INFO] 正在发布: 第45章 凤辇
+2026-05-19 11:05:06,101 [ERROR] 发布第45章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=147.0.7727.138)
+Stacktrace:
+0   chromedriver                        0x000000010fdd65d8 chromedriver + 6821336
+1   chromedriver                        0x000000010fdcdc5a chromedriver + 6786138
+2   chromedriver                        0x000000010f7c39d5 chromedriver + 453077
+3   chromedriver                        0x000000010f796d18 chromedriver + 269592
+4   chromedriver                        0x000000010f845dd8 chromedriver + 986584
+5   chromedriver                        0x000000010f8601f8 chromedriver + 1094136
+6   chromedriver                        0x000000010f80a4b4 chromedriver + 742580
+7   chromedriver                        0x000000010f80b261 chromedriver + 746081
+8   chromedriver                        0x000000010fd8e1f7 chromedriver + 6525431
+9   chromedriver                        0x000000010fd92686 chromedriver + 6542982
+10  chromedriver                        0x000000010fd6defb chromedriver + 6393595
+11  chromedriver                        0x000000010fd930f8 chromedriver + 6545656
+12  chromedriver                        0x000000010fd5d440 chromedriver + 6325312
+13  chromedriver                        0x000000010fdba738 chromedriver + 6707000
+14  chromedriver                        0x000000010fdba8f2 chromedriver + 6707442
+15  chromedriver                        0x000000010fdcd871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+

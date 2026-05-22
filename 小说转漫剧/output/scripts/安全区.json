@@ -1,0 +1,199 @@
+{
+  "series_title": "安全区",
+  "scenes": [
+    {
+      "id": 1,
+      "character_list": [
+        "林越"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, wide shot, a ruined city street at night, a young man with black hair in a gray tactical jacket crouches behind a collapsed concrete beam, blue electric arcs flash in the sky above, the ground is littered with debris, moonlit shadows cast across the scene",
+      "dialogue": "苍蓝色的电弧在废墟上空炸开，整个第十三号安全区的电网熄灭了。",
+      "voice_id": "narrator",
+      "camera_movement": "static"
+    },
+    {
+      "id": 2,
+      "character_list": [
+        "林越"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, close-up shot, a young man with black hair and sharp eyes peering through a crack in concrete, a large mutant creature with six limbs and bone blades visible in the background, moonlight reflecting off its white blades, tension in his expression",
+      "dialogue": "",
+      "voice_id": "narrator",
+      "camera_movement": "static"
+    },
+    {
+      "id": 3,
+      "character_list": [
+        "林越",
+        "赵绫"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, medium shot, a young woman with short brown hair in gray-green tactical gear, wearing a dark cap, holding a sniper rifle, crouched in a ruined building, speaking into a headset, a young man with black hair visible through a crack in the distance, multiple characters in one frame",
+      "dialogue": "它还看得见吗？",
+      "voice_id": "female_lead_01",
+      "camera_movement": "static"
+    },
+    {
+      "id": 4,
+      "character_list": [
+        "林越"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, close-up shot, a young man with black hair looking at a tactical tablet, a red dot moving in an arc on the thermal display, his face illuminated by the screen, intense concentration",
+      "dialogue": "复眼已经适应了黑暗，电网熄灭对它没有影响。",
+      "voice_id": "male_lead",
+      "camera_movement": "static"
+    },
+    {
+      "id": 5,
+      "character_list": [
+        "林越"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, medium shot, a young man with black hair standing up from behind cover, drawing a high-frequency oscillation dagger with a blue glow from his belt, facing a large mutant creature 20 meters away, moonlight casting long shadows, dramatic tension",
+      "dialogue": "我把它引过来——你等我信号再开枪。",
+      "voice_id": "male_lead",
+      "camera_movement": "static"
+    },
+    {
+      "id": 6,
+      "character_list": [
+        "林越",
+        "赵绫"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, wide shot, a young man with black hair standing in the open, a large mutant creature charging towards him, a sniper rifle flash in the distance from a ruined building, multiple characters in one frame, action scene with debris flying",
+      "dialogue": "就是现在。",
+      "voice_id": "male_lead",
+      "camera_movement": "static"
+    },
+    {
+      "id": 7,
+      "character_list": [
+        "林越"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, close-up shot, a young man with black hair crouching next to a dead mutant creature, its six limbs sprawled on the ground, examining a crystal on its head, his dagger sheathed at his waist, calm expression",
+      "dialogue": "",
+      "voice_id": "narrator",
+      "camera_movement": "static"
+    },
+    {
+      "id": 8,
+      "character_list": [
+        "林越",
+        "赵绫"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, medium shot, a young woman with short brown hair, wearing a dark cap, carrying a sniper rifle, jumps down from a ruined building and runs towards a young man with black hair, dust on her clothes, both in a moonlit ruined street, multiple characters in one frame",
+      "dialogue": "你是怎么知道它在黑暗中看得更清楚的？",
+      "voice_id": "female_lead_01",
+      "camera_movement": "static"
+    },
+    {
+      "id": 9,
+      "character_list": [
+        "林越",
+        "赵绫"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, close-up shot, a young man with black hair and a young woman with short brown hair crouching together, the woman removes her cap and wipes dust from her face, a strand of hair stuck to her lip, both looking at the mutant crystal, intimate moment",
+      "dialogue": "因为它进来之前在外面停留了大约两秒钟。",
+      "voice_id": "male_lead",
+      "camera_movement": "static"
+    },
+    {
+      "id": 10,
+      "character_list": [
+        "赵绫"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, medium shot, a young woman with short brown hair standing up, stretching, sniper rifle slung over her back, a smile on her face, the sky beginning to lighten in the east, ruined city backdrop",
+      "dialogue": "那今晚可以吃罐头了。那种热的——不是冻成砖头的那种。",
+      "voice_id": "female_lead_01",
+      "camera_movement": "static"
+    },
+    {
+      "id": 11,
+      "character_list": [
+        "林越",
+        "赵绫",
+        "陆明远",
+        "沈薇"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, wide shot, a young man with black hair and a young woman with short brown hair standing in front of a large metal gate, a middle-aged man in a clean blue uniform with a metal badge and a young woman with glasses in a white lab coat holding a holographic projector approach them, bright headlights from a vehicle behind, multiple characters in one frame",
+      "dialogue": "林越——编号0731。我是安全区管理委员会的执行官陆明远。",
+      "voice_id": "supporting_male",
+      "camera_movement": "static"
+    },
+    {
+      "id": 12,
+      "character_list": [
+        "赵绫",
+        "陆明远",
+        "沈薇"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, medium shot, a young woman with short brown hair gripping her sniper rifle sling, facing a stern middle-aged man in a blue uniform and a calm woman in a white lab coat, holographic data floating in the air showing bullet trajectory and energy decay, multiple characters in one frame",
+      "dialogue": "委员会在凌晨五点叫人去报到？我们刚在外面和一只精英级打了四十分钟——",
+      "voice_id": "female_lead_01",
+      "camera_movement": "static"
+    },
+    {
+      "id": 13,
+      "character_list": [
+        "沈薇",
+        "赵绫"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, close-up shot, a young woman with glasses in a white lab coat holding a holographic projector, calm expression, speaking to a young woman with short brown hair, holographic data visible in the air, intense focus",
+      "dialogue": "你这一枪打的是它的第三和第四神经节之间的接合位置。我需要知道你是怎么做到的。",
+      "voice_id": "supporting_female",
+      "camera_movement": "static"
+    },
+    {
+      "id": 14,
+      "character_list": [
+        "赵绫",
+        "林越"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, medium shot, a young woman with short brown hair turns to look at a young man with black hair, both standing in a beam of headlights, the woman's hand tightens on her rifle sling, the man stands still, waiting, silent communication, multiple characters in one frame",
+      "dialogue": "一只领主级——你们有多少把握？",
+      "voice_id": "female_lead_01",
+      "camera_movement": "static"
+    },
+    {
+      "id": 15,
+      "character_list": [
+        "沈薇"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, close-up shot, a young woman with glasses in a white lab coat looking at a tablet, her eyebrows slightly raised, speaking calmly, holographic data reflected in her glasses",
+      "dialogue": "如果由你来执行远程狙击——大约百分之十一。如果把林越作为近战诱饵——大约百分之三十八。",
+      "voice_id": "supporting_female",
+      "camera_movement": "static"
+    },
+    {
+      "id": 16,
+      "character_list": [
+        "赵绫",
+        "林越"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, medium shot, a young woman with short brown hair turns to a young man with black hair, he tosses a rusty eagle badge to her, she catches it, both standing in the headlight beam, the man's shadow stretching towards her, multiple characters in one frame",
+      "dialogue": "你打算怎么选？",
+      "voice_id": "female_lead_01",
+      "camera_movement": "static"
+    },
+    {
+      "id": 17,
+      "character_list": [
+        "林越",
+        "赵绫"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, wide shot, a young man with black hair walking away, backpack over his shoulder, towards a building, a young woman with short brown hair stands watching, the man's long shadow falls on the ground in front of her, dawn light in the sky, multiple characters in one frame",
+      "dialogue": "这是我刚才在那只精英级被击杀的位置旁边找到的东西。",
+      "voice_id": "male_lead",
+      "camera_movement": "static"
+    },
+    {
+      "id": 18,
+      "character_list": [
+        "赵绫",
+        "沈薇"
+      ],
+      "image_prompt": "anime style, consistent character design, cinematic lighting, medium shot, a young woman with short brown hair puts the rusty badge in her pocket and starts walking, a young woman with glasses in a white lab coat watches from behind, typing on a tablet, the scene fades into a data note overlay, multiple characters in one frame",
+      "dialogue": "你这家伙——每次都不好好说人话。",
+      "voice_id": "female_lead_01",
+      "camera_movement": "static"
+    }
+  ]
+}

@@ -1,0 +1,800 @@
+2026-05-21 16:53:39,827 [INFO] 加载配置: API=https://api.deepseek.com/anthropic, Model=deepseek-v4-flash, Key=已设置
+2026-05-21 16:53:39,884 [INFO] NovelKingdomHarness 初始化完成
+2026-05-21 16:53:39,884 [INFO]   小说: 万古神龙：我的血脉全靠吞 | 目标章节: 第77章
+2026-05-21 16:53:39,884 [INFO]   记忆: 20110 字符
+2026-05-21 16:53:39,884 [INFO]   大纲: 3424 字符
+2026-05-21 16:53:39,885 [INFO]   风格指南: 3230 字符
+2026-05-21 16:53:39,885 [INFO] ============================================================
+2026-05-21 16:53:39,885 [INFO]   启动创作导演循环 — 目标: 第77章
+2026-05-21 16:53:39,885 [INFO] ============================================================
+2026-05-21 16:53:39,885 [INFO] 
+============================================================
+2026-05-21 16:53:39,885 [INFO]   循环迭代 #1
+2026-05-21 16:53:39,885 [INFO] ============================================================
+2026-05-21 16:53:42,090 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:53:42,090 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:53:47,187 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:53:47,187 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:53:57,284 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:53:57,285 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:53:57,285 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:53:57,289 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:54:02,293 [INFO] 
+============================================================
+2026-05-21 16:54:02,294 [INFO]   循环迭代 #2
+2026-05-21 16:54:02,294 [INFO] ============================================================
+2026-05-21 16:54:03,043 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:54:03,043 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:54:08,126 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:54:08,127 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:54:18,222 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:54:18,223 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:54:18,223 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:54:18,223 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:54:23,228 [INFO] 
+============================================================
+2026-05-21 16:54:23,229 [INFO]   循环迭代 #3
+2026-05-21 16:54:23,229 [INFO] ============================================================
+2026-05-21 16:54:23,363 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:54:23,364 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:54:28,448 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:54:28,448 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:54:38,537 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:54:38,537 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:54:38,538 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:54:38,538 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:54:43,543 [INFO] 
+============================================================
+2026-05-21 16:54:43,544 [INFO]   循环迭代 #4
+2026-05-21 16:54:43,544 [INFO] ============================================================
+2026-05-21 16:54:43,688 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:54:43,688 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:54:48,997 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:54:48,997 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:54:59,088 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:54:59,088 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:54:59,088 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:54:59,090 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:55:04,093 [INFO] 
+============================================================
+2026-05-21 16:55:04,094 [INFO]   循环迭代 #5
+2026-05-21 16:55:04,094 [INFO] ============================================================
+2026-05-21 16:55:04,298 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:55:04,298 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:55:09,390 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:55:09,390 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:55:19,483 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:55:19,484 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:55:19,484 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:55:19,486 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:55:24,491 [INFO] 
+============================================================
+2026-05-21 16:55:24,491 [INFO]   循环迭代 #6
+2026-05-21 16:55:24,491 [INFO] ============================================================
+2026-05-21 16:55:24,751 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:55:24,751 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:55:29,842 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:55:29,843 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:55:39,929 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:55:39,929 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:55:39,929 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:55:39,930 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:55:44,933 [INFO] 
+============================================================
+2026-05-21 16:55:44,933 [INFO]   循环迭代 #7
+2026-05-21 16:55:44,933 [INFO] ============================================================
+2026-05-21 16:55:45,060 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:55:45,060 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:55:50,138 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:55:50,139 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:56:00,229 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:56:00,229 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:56:00,229 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:56:00,230 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:56:05,233 [INFO] 
+============================================================
+2026-05-21 16:56:05,233 [INFO]   循环迭代 #8
+2026-05-21 16:56:05,233 [INFO] ============================================================
+2026-05-21 16:56:05,357 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:56:05,357 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:56:10,443 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:56:10,443 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:56:20,535 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:56:20,536 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:56:20,536 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:56:20,537 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:56:25,539 [INFO] 
+============================================================
+2026-05-21 16:56:25,539 [INFO]   循环迭代 #9
+2026-05-21 16:56:25,539 [INFO] ============================================================
+2026-05-21 16:56:25,751 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:56:25,752 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:56:30,836 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:56:30,837 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:56:40,920 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:56:40,921 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:56:40,921 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:56:40,922 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:56:45,866 [INFO] 
+============================================================
+2026-05-21 16:56:45,867 [INFO]   循环迭代 #10
+2026-05-21 16:56:45,867 [INFO] ============================================================
+2026-05-21 16:56:46,010 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:56:46,010 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:56:51,095 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:56:51,096 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:57:01,232 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:57:01,233 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:57:01,233 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:57:01,234 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:57:06,237 [INFO] 
+============================================================
+2026-05-21 16:57:06,237 [INFO]   循环迭代 #11
+2026-05-21 16:57:06,238 [INFO] ============================================================
+2026-05-21 16:57:06,556 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:57:06,562 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:57:11,668 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:57:11,669 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:57:21,770 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:57:21,771 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:57:21,771 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:57:21,772 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:57:26,777 [INFO] 
+============================================================
+2026-05-21 16:57:26,777 [INFO]   循环迭代 #12
+2026-05-21 16:57:26,777 [INFO] ============================================================
+2026-05-21 16:57:26,949 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:57:26,950 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:57:32,039 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:57:32,040 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:57:42,126 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:57:42,126 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:57:42,127 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:57:42,127 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:57:47,132 [INFO] 
+============================================================
+2026-05-21 16:57:47,132 [INFO]   循环迭代 #13
+2026-05-21 16:57:47,132 [INFO] ============================================================
+2026-05-21 16:57:47,305 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:57:47,306 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:57:52,390 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:57:52,391 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:58:02,688 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:58:02,688 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:58:02,689 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:58:02,689 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:58:07,693 [INFO] 
+============================================================
+2026-05-21 16:58:07,693 [INFO]   循环迭代 #14
+2026-05-21 16:58:07,693 [INFO] ============================================================
+2026-05-21 16:58:07,814 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:58:07,814 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:58:12,908 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:58:12,909 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:58:23,001 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:58:23,002 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:58:23,002 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:58:23,003 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:58:28,008 [INFO] 
+============================================================
+2026-05-21 16:58:28,008 [INFO]   循环迭代 #15
+2026-05-21 16:58:28,008 [INFO] ============================================================
+2026-05-21 16:58:28,156 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:58:28,157 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:58:33,264 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:58:33,264 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:58:43,451 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:58:43,452 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:58:43,452 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:58:43,453 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:58:48,456 [INFO] 
+============================================================
+2026-05-21 16:58:48,457 [INFO]   循环迭代 #16
+2026-05-21 16:58:48,457 [INFO] ============================================================
+2026-05-21 16:58:48,632 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:58:48,634 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:58:53,724 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:58:53,725 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:59:04,043 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:59:04,044 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:59:04,044 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:59:04,045 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:59:09,049 [INFO] 
+============================================================
+2026-05-21 16:59:09,049 [INFO]   循环迭代 #17
+2026-05-21 16:59:09,049 [INFO] ============================================================
+2026-05-21 16:59:09,182 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:59:09,184 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:59:14,298 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:59:14,299 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:59:24,402 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:59:24,403 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:59:24,403 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:59:24,404 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:59:29,408 [INFO] 
+============================================================
+2026-05-21 16:59:29,409 [INFO]   循环迭代 #18
+2026-05-21 16:59:29,409 [INFO] ============================================================
+2026-05-21 16:59:29,538 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:59:29,538 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:59:34,632 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:59:34,632 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 16:59:44,859 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:59:44,860 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 16:59:44,861 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 16:59:44,861 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 16:59:49,866 [INFO] 
+============================================================
+2026-05-21 16:59:49,866 [INFO]   循环迭代 #19
+2026-05-21 16:59:49,866 [INFO] ============================================================
+2026-05-21 16:59:50,015 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:59:50,016 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 16:59:55,130 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 16:59:55,132 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:00:05,332 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:00:05,332 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:00:05,332 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:00:05,333 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:00:10,337 [INFO] 
+============================================================
+2026-05-21 17:00:10,337 [INFO]   循环迭代 #20
+2026-05-21 17:00:10,337 [INFO] ============================================================
+2026-05-21 17:00:10,505 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:00:10,506 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:00:15,604 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:00:15,605 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:00:25,689 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:00:25,690 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:00:25,690 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:00:25,691 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:00:30,694 [INFO] 
+============================================================
+2026-05-21 17:00:30,694 [INFO]   循环迭代 #21
+2026-05-21 17:00:30,694 [INFO] ============================================================
+2026-05-21 17:00:30,956 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:00:30,957 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:00:36,082 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:00:36,084 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:00:46,246 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:00:46,248 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:00:46,248 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:00:46,249 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:00:51,252 [INFO] 
+============================================================
+2026-05-21 17:00:51,252 [INFO]   循环迭代 #22
+2026-05-21 17:00:51,252 [INFO] ============================================================
+2026-05-21 17:00:51,578 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:00:51,578 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:00:56,665 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:00:56,667 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:01:06,760 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:01:06,761 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:01:06,761 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:01:06,762 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:01:11,764 [INFO] 
+============================================================
+2026-05-21 17:01:11,765 [INFO]   循环迭代 #23
+2026-05-21 17:01:11,766 [INFO] ============================================================
+2026-05-21 17:01:11,913 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:01:11,914 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:01:17,021 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:01:17,022 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:01:27,126 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:01:27,127 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:01:27,127 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:01:27,128 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:01:32,131 [INFO] 
+============================================================
+2026-05-21 17:01:32,132 [INFO]   循环迭代 #24
+2026-05-21 17:01:32,132 [INFO] ============================================================
+2026-05-21 17:01:32,374 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:01:32,375 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:01:37,479 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:01:37,480 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:01:47,566 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:01:47,567 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:01:47,568 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:01:47,568 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:01:52,572 [INFO] 
+============================================================
+2026-05-21 17:01:52,572 [INFO]   循环迭代 #25
+2026-05-21 17:01:52,573 [INFO] ============================================================
+2026-05-21 17:01:52,778 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:01:52,794 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:01:57,888 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:01:57,888 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:02:07,996 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:02:07,998 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:02:07,998 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:02:08,000 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:02:13,006 [INFO] 
+============================================================
+2026-05-21 17:02:13,007 [INFO]   循环迭代 #26
+2026-05-21 17:02:13,008 [INFO] ============================================================
+2026-05-21 17:02:13,190 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:02:13,190 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:02:18,365 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:02:18,366 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:02:28,486 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:02:28,487 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:02:28,487 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:02:28,488 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:02:33,493 [INFO] 
+============================================================
+2026-05-21 17:02:33,494 [INFO]   循环迭代 #27
+2026-05-21 17:02:33,494 [INFO] ============================================================
+2026-05-21 17:02:33,728 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:02:33,729 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:02:38,830 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:02:38,831 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:02:48,985 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:02:48,986 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:02:48,986 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:02:48,987 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:02:53,990 [INFO] 
+============================================================
+2026-05-21 17:02:53,990 [INFO]   循环迭代 #28
+2026-05-21 17:02:53,990 [INFO] ============================================================
+2026-05-21 17:02:54,161 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:02:54,161 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:02:59,251 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:02:59,252 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:03:09,351 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:03:09,352 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:03:09,352 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:03:09,353 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:03:14,355 [INFO] 
+============================================================
+2026-05-21 17:03:14,355 [INFO]   循环迭代 #29
+2026-05-21 17:03:14,355 [INFO] ============================================================
+2026-05-21 17:03:14,480 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:03:14,481 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:03:19,607 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:03:19,608 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:03:29,687 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:03:29,687 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:03:29,687 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:03:29,689 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:03:34,693 [INFO] 
+============================================================
+2026-05-21 17:03:34,694 [INFO]   循环迭代 #30
+2026-05-21 17:03:34,694 [INFO] ============================================================
+2026-05-21 17:03:34,856 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:03:34,857 [WARNING] LLM 调用失败（尝试 1/3）：Error code: 404
+2026-05-21 17:03:39,967 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:03:39,968 [WARNING] LLM 调用失败（尝试 2/3）：Error code: 404
+2026-05-21 17:03:50,084 [INFO] HTTP Request: POST https://api.deepseek.com/anthropic/chat/completions "HTTP/1.1 404 Not Found"
+2026-05-21 17:03:50,085 [WARNING] LLM 调用失败（尝试 3/3）：Error code: 404
+2026-05-21 17:03:50,085 [ERROR] 循环异常: LLM 调用彻底失败，已重试 3 次：Error code: 404
+2026-05-21 17:03:50,085 [ERROR] Traceback (most recent call last):
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 387, in start_work
+    decision = self._director_think(observation)
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 449, in _director_think
+    raw = call_llm(
+        system_prompt=self.DIRECTOR_SYSTEM_PROMPT,
+    ...<3 lines>...
+        response_format={"type": "json_object"},
+    )
+  File "/Users/vincent/Documents/小说模型/自动化/agent_director.py", line 123, in call_llm
+    raise RuntimeError(
+        f"LLM 调用彻底失败，已重试 {MAX_RETRIES} 次：{last_exception}"
+    )
+RuntimeError: LLM 调用彻底失败，已重试 3 次：Error code: 404
+
+2026-05-21 17:03:55,089 [INFO] 
+============================================================
+2026-05-21 17:03:55,090 [INFO]   创作流程结束
+  小说: 万古神龙：我的血脉全靠吞
+  目标章节: 第77章
+  当前章节: 第77章
+  迭代次数: 30
+  已生成内容: ❌
+  已编辑内容: ❌
+  已写入文件: ❌
+2026-05-21 17:03:55,090 [INFO] ============================================================

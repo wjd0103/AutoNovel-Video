@@ -1,0 +1,26 @@
+2026-05-18 18:52:36,252 [INFO] 加载配置: 发布配置.yaml
+2026-05-18 18:52:36,255 [INFO] 章节目录: /Users/vincent/Documents/小说模型/全球灾变：我的AI能自动升级/执行/章节
+2026-05-18 18:52:36,616 [INFO] Chrome profile 锁文件已清理
+2026-05-18 18:52:40,165 [INFO] Chrome 浏览器已启动（已登录模式）
+2026-05-18 18:52:40,166 [INFO] 正在打开作家工作台...
+2026-05-18 18:52:48,318 [INFO] 已进入作家工作台
+2026-05-18 18:52:48,319 [INFO] 正在发布: 第8章 探索者的傲慢
+2026-05-18 18:52:56,778 [INFO]   当前URL: https://fanqienovel.com/main/writer/book-manage
+2026-05-18 18:52:56,869 [INFO]   第1次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:53:06,949 [INFO]   第2次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:53:17,027 [INFO]   第3次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:53:27,114 [INFO]   第4次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:53:37,192 [INFO]   第5次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:53:47,259 [INFO]   第6次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:53:57,263 [WARNING] 「下一步」未出现，重定向到管理页，点击「创建章节」...
+2026-05-18 18:53:57,598 [INFO]   已点击: 创建章节
+2026-05-18 18:54:05,684 [INFO]   第1次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:54:15,769 [INFO]   第2次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:54:25,842 [INFO]   第3次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:54:35,903 [INFO]   第4次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:54:45,972 [INFO]   第5次检查，可见按钮: ['作品相关', '章节管理', '作品推荐', '创建章节']
+2026-05-18 18:54:55,133 [WARNING] 用户中断
+2026-05-18 18:54:55,153 [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10d90e900>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/70c112ac24ba25c8dc4be0af6a583796
+2026-05-18 18:54:55,155 [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10d8faad0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/70c112ac24ba25c8dc4be0af6a583796
+2026-05-18 18:54:55,158 [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x10d8fa5d0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/70c112ac24ba25c8dc4be0af6a583796
+2026-05-18 18:54:55,164 [INFO] 浏览器已关闭

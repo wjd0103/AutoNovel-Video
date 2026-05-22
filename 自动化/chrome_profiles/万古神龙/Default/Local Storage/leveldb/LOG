@@ -1,0 +1,6 @@
+2026/05/22-09:35:48.766 bb5f2a Reusing MANIFEST /Users/vincent/Documents/小说模型/自动化/chrome_profiles/万古神龙/Default/Local Storage/leveldb/MANIFEST-000001
+2026/05/22-09:35:48.776 bb5f2a Recovering log #10
+2026/05/22-09:35:48.779 bb5f2a Reusing old log /Users/vincent/Documents/小说模型/自动化/chrome_profiles/万古神龙/Default/Local Storage/leveldb/000010.log 
+2026/05/22-09:38:50.947 bb5f30 Level-0 table #14: started
+2026/05/22-09:38:50.952 bb5f30 Level-0 table #14: 42342 bytes OK
+2026/05/22-09:38:50.956 bb5f30 Delete type=0 #10

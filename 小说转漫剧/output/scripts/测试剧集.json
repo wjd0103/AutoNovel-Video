@@ -1,0 +1,15 @@
+{
+  "series_title": "测试",
+  "scenes": [
+    {
+      "id": 1,
+      "character_list": [
+        "林越"
+      ],
+      "image_prompt": "anime style, young man black short hair dark tactical vest",
+      "dialogue": "测试台词",
+      "voice_id": "male_lead",
+      "camera_movement": "static"
+    }
+  ]
+}

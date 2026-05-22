@@ -1,0 +1,185 @@
+2026-05-22 12:26:29,352 [WARNING] 未找到项目配置 发布配置-全球灾变.yaml，使用默认配置
+2026-05-22 12:26:29,353 [INFO] 加载配置: 发布配置.yaml
+2026-05-22 12:26:29,355 [INFO] 当前项目: 全球灾变
+2026-05-22 12:26:29,355 [INFO] 章节目录: /Users/vincent/Documents/小说模型/全球灾变：我的AI能自动升级/执行/章节
+2026-05-22 12:26:29,699 [INFO] Chrome 用户数据目录: /Users/vincent/Documents/小说模型/自动化/chrome_profiles/全球灾变（作品: 全球灾变：我的AI能自动升级）
+2026-05-22 12:26:29,699 [INFO] Chrome profile 锁文件已清理
+2026-05-22 12:26:32,143 [INFO] Chrome 浏览器已启动（已登录模式）
+2026-05-22 12:26:32,143 [INFO] 正在打开作家工作台...
+2026-05-22 12:26:39,576 [INFO] 已进入作家工作台
+2026-05-22 12:26:39,577 [INFO] 正在发布: 第42章 核心
+2026-05-22 12:26:48,017 [INFO]   当前URL: https://fanqienovel.com/main/writer/7641137747754748990/publish/7642567889035215384
+2026-05-22 12:26:48,153 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步']
+2026-05-22 12:26:48,716 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_42.html
+2026-05-22 12:26:48,716 [INFO] 填充发布表单...
+2026-05-22 12:26:49,662 [INFO]   章节号已填入: 42
+2026-05-22 12:26:50,381 [INFO]   标题已填入: 核心
+2026-05-22 12:26:50,435 [INFO]   正文已注入 (3832 字)
+2026-05-22 12:26:56,456 [ERROR] 点击「下一步」失败
+2026-05-22 12:26:59,464 [INFO] 正在发布: 第43章 反杀
+2026-05-22 12:27:07,867 [INFO]   当前URL: https://fanqienovel.com/main/writer/7641137747754748990/publish/7642567974091489816
+2026-05-22 12:27:08,017 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步']
+2026-05-22 12:27:08,601 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_43.html
+2026-05-22 12:27:08,601 [INFO] 填充发布表单...
+2026-05-22 12:27:08,707 [ERROR] 未找到章节号输入框，尝试 JS fallback...
+2026-05-22 12:27:08,714 [WARNING] 未找到标题输入框
+2026-05-22 12:27:08,715 [ERROR] 未找到正文编辑器
+2026-05-22 12:27:12,728 [ERROR] 点击「下一步」失败
+2026-05-22 12:27:15,732 [INFO] 正在发布: 第44章 逻辑篡改
+2026-05-22 12:27:24,457 [INFO]   当前URL: https://fanqienovel.com/main/writer/7641137747754748990/publish/7642567974091489816
+2026-05-22 12:27:24,611 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步']
+2026-05-22 12:27:25,224 [INFO]   页面 HTML 已保存: /Users/vincent/Documents/小说模型/自动化/日志/debug/page_html_44.html
+2026-05-22 12:27:25,225 [INFO] 填充发布表单...
+2026-05-22 12:27:25,989 [INFO]   章节号已填入: 44
+2026-05-22 12:27:26,735 [INFO]   标题已填入: 逻辑篡改
+2026-05-22 12:27:26,781 [INFO]   正文已注入 (5229 字)
+2026-05-22 12:27:32,799 [ERROR] 点击「下一步」失败
+2026-05-22 12:27:35,805 [INFO] 正在发布: 第45章 数据入侵
+2026-05-22 12:27:44,182 [INFO]   当前URL: https://fanqienovel.com/main/writer/7641137747754748990/publish/7642568129960215064
+2026-05-22 12:27:44,316 [INFO]   第1次检查，可见按钮: ['存草稿', '下一步', '下一步']
+2026-05-22 12:27:44,682 [ERROR] 发布第45章时出错: 'NoneType' object has no attribute 'encode'
+2026-05-22 12:27:47,687 [INFO] 正在发布: 第46章 绝境升级
+2026-05-22 12:27:47,689 [ERROR] 发布第46章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x000000010bab35d8 chromedriver + 6821336
+1   chromedriver                        0x000000010baaac5a chromedriver + 6786138
+2   chromedriver                        0x000000010b4a09d5 chromedriver + 453077
+3   chromedriver                        0x000000010b473d18 chromedriver + 269592
+4   chromedriver                        0x000000010b522dd8 chromedriver + 986584
+5   chromedriver                        0x000000010b53d1f8 chromedriver + 1094136
+6   chromedriver                        0x000000010b4e74b4 chromedriver + 742580
+7   chromedriver                        0x000000010b4e8261 chromedriver + 746081
+8   chromedriver                        0x000000010ba6b1f7 chromedriver + 6525431
+9   chromedriver                        0x000000010ba6f686 chromedriver + 6542982
+10  chromedriver                        0x000000010ba4aefb chromedriver + 6393595
+11  chromedriver                        0x000000010ba700f8 chromedriver + 6545656
+12  chromedriver                        0x000000010ba3a440 chromedriver + 6325312
+13  chromedriver                        0x000000010ba97738 chromedriver + 6707000
+14  chromedriver                        0x000000010ba978f2 chromedriver + 6707442
+15  chromedriver                        0x000000010baaa871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 12:27:50,695 [INFO] 正在发布: 第47章 数据碾压
+2026-05-22 12:27:50,697 [ERROR] 发布第47章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x000000010bab35d8 chromedriver + 6821336
+1   chromedriver                        0x000000010baaac5a chromedriver + 6786138
+2   chromedriver                        0x000000010b4a09d5 chromedriver + 453077
+3   chromedriver                        0x000000010b473d18 chromedriver + 269592
+4   chromedriver                        0x000000010b522dd8 chromedriver + 986584
+5   chromedriver                        0x000000010b53d1f8 chromedriver + 1094136
+6   chromedriver                        0x000000010b4e74b4 chromedriver + 742580
+7   chromedriver                        0x000000010b4e8261 chromedriver + 746081
+8   chromedriver                        0x000000010ba6b1f7 chromedriver + 6525431
+9   chromedriver                        0x000000010ba6f686 chromedriver + 6542982
+10  chromedriver                        0x000000010ba4aefb chromedriver + 6393595
+11  chromedriver                        0x000000010ba700f8 chromedriver + 6545656
+12  chromedriver                        0x000000010ba3a440 chromedriver + 6325312
+13  chromedriver                        0x000000010ba97738 chromedriver + 6707000
+14  chromedriver                        0x000000010ba978f2 chromedriver + 6707442
+15  chromedriver                        0x000000010baaa871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 12:27:53,701 [INFO] 正在发布: 第48章 数据具现
+2026-05-22 12:27:53,702 [ERROR] 发布第48章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x000000010bab35d8 chromedriver + 6821336
+1   chromedriver                        0x000000010baaac5a chromedriver + 6786138
+2   chromedriver                        0x000000010b4a09d5 chromedriver + 453077
+3   chromedriver                        0x000000010b473d18 chromedriver + 269592
+4   chromedriver                        0x000000010b522dd8 chromedriver + 986584
+5   chromedriver                        0x000000010b53d1f8 chromedriver + 1094136
+6   chromedriver                        0x000000010b4e74b4 chromedriver + 742580
+7   chromedriver                        0x000000010b4e8261 chromedriver + 746081
+8   chromedriver                        0x000000010ba6b1f7 chromedriver + 6525431
+9   chromedriver                        0x000000010ba6f686 chromedriver + 6542982
+10  chromedriver                        0x000000010ba4aefb chromedriver + 6393595
+11  chromedriver                        0x000000010ba700f8 chromedriver + 6545656
+12  chromedriver                        0x000000010ba3a440 chromedriver + 6325312
+13  chromedriver                        0x000000010ba97738 chromedriver + 6707000
+14  chromedriver                        0x000000010ba978f2 chromedriver + 6707442
+15  chromedriver                        0x000000010baaa871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 12:27:56,708 [INFO] 正在发布: 第49章 单刷领主
+2026-05-22 12:27:56,709 [ERROR] 发布第49章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x000000010bab35d8 chromedriver + 6821336
+1   chromedriver                        0x000000010baaac5a chromedriver + 6786138
+2   chromedriver                        0x000000010b4a09d5 chromedriver + 453077
+3   chromedriver                        0x000000010b473d18 chromedriver + 269592
+4   chromedriver                        0x000000010b522dd8 chromedriver + 986584
+5   chromedriver                        0x000000010b53d1f8 chromedriver + 1094136
+6   chromedriver                        0x000000010b4e74b4 chromedriver + 742580
+7   chromedriver                        0x000000010b4e8261 chromedriver + 746081
+8   chromedriver                        0x000000010ba6b1f7 chromedriver + 6525431
+9   chromedriver                        0x000000010ba6f686 chromedriver + 6542982
+10  chromedriver                        0x000000010ba4aefb chromedriver + 6393595
+11  chromedriver                        0x000000010ba700f8 chromedriver + 6545656
+12  chromedriver                        0x000000010ba3a440 chromedriver + 6325312
+13  chromedriver                        0x000000010ba97738 chromedriver + 6707000
+14  chromedriver                        0x000000010ba978f2 chromedriver + 6707442
+15  chromedriver                        0x000000010baaa871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 12:27:59,714 [INFO] 正在发布: 第50章 同类信号
+2026-05-22 12:27:59,716 [ERROR] 发布第50章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x000000010bab35d8 chromedriver + 6821336
+1   chromedriver                        0x000000010baaac5a chromedriver + 6786138
+2   chromedriver                        0x000000010b4a09d5 chromedriver + 453077
+3   chromedriver                        0x000000010b473d18 chromedriver + 269592
+4   chromedriver                        0x000000010b522dd8 chromedriver + 986584
+5   chromedriver                        0x000000010b53d1f8 chromedriver + 1094136
+6   chromedriver                        0x000000010b4e74b4 chromedriver + 742580
+7   chromedriver                        0x000000010b4e8261 chromedriver + 746081
+8   chromedriver                        0x000000010ba6b1f7 chromedriver + 6525431
+9   chromedriver                        0x000000010ba6f686 chromedriver + 6542982
+10  chromedriver                        0x000000010ba4aefb chromedriver + 6393595
+11  chromedriver                        0x000000010ba700f8 chromedriver + 6545656
+12  chromedriver                        0x000000010ba3a440 chromedriver + 6325312
+13  chromedriver                        0x000000010ba97738 chromedriver + 6707000
+14  chromedriver                        0x000000010ba978f2 chromedriver + 6707442
+15  chromedriver                        0x000000010baaa871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 12:28:02,721 [INFO] 正在发布: 第51章 入侵前兆
+2026-05-22 12:28:02,723 [ERROR] 发布第51章时出错: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.168)
+Stacktrace:
+0   chromedriver                        0x000000010bab35d8 chromedriver + 6821336
+1   chromedriver                        0x000000010baaac5a chromedriver + 6786138
+2   chromedriver                        0x000000010b4a09d5 chromedriver + 453077
+3   chromedriver                        0x000000010b473d18 chromedriver + 269592
+4   chromedriver                        0x000000010b522dd8 chromedriver + 986584
+5   chromedriver                        0x000000010b53d1f8 chromedriver + 1094136
+6   chromedriver                        0x000000010b4e74b4 chromedriver + 742580
+7   chromedriver                        0x000000010b4e8261 chromedriver + 746081
+8   chromedriver                        0x000000010ba6b1f7 chromedriver + 6525431
+9   chromedriver                        0x000000010ba6f686 chromedriver + 6542982
+10  chromedriver                        0x000000010ba4aefb chromedriver + 6393595
+11  chromedriver                        0x000000010ba700f8 chromedriver + 6545656
+12  chromedriver                        0x000000010ba3a440 chromedriver + 6325312
+13  chromedriver                        0x000000010ba97738 chromedriver + 6707000
+14  chromedriver                        0x000000010ba978f2 chromedriver + 6707442
+15  chromedriver                        0x000000010baaa871 chromedriver + 6785137
+16  libsystem_pthread.dylib             0x00007ff81a2ffdf1 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff81a2fb857 thread_start + 15
+
+2026-05-22 12:28:05,925 [INFO] 浏览器已关闭

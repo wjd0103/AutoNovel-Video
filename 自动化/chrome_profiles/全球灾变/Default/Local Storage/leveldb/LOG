@@ -1,0 +1,9 @@
+2026/05/22-12:35:18.628 be5676 Reusing MANIFEST /Users/vincent/Documents/小说模型/自动化/chrome_profiles/全球灾变/Default/Local Storage/leveldb/MANIFEST-000001
+2026/05/22-12:35:18.637 be5676 Recovering log #11
+2026/05/22-12:35:18.638 be5676 Reusing old log /Users/vincent/Documents/小说模型/自动化/chrome_profiles/全球灾变/Default/Local Storage/leveldb/000011.log 
+2026/05/22-12:37:20.679 be567c Level-0 table #16: started
+2026/05/22-12:37:20.682 be567c Level-0 table #16: 48594 bytes OK
+2026/05/22-12:37:20.685 be567c Delete type=0 #11
+2026/05/22-12:40:10.880 be567c Level-0 table #18: started
+2026/05/22-12:40:10.883 be567c Level-0 table #18: 49255 bytes OK
+2026/05/22-12:40:10.888 be567c Delete type=0 #15
