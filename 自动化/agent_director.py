@@ -47,7 +47,7 @@ RETRY_DELAY = 5
 
 # ---- 从项目配置读取 API 凭证 ----
 PROJECT_CONFIG_FILE = PROJECT_ROOT / "万古神龙：我的血脉全靠吞" / "项目配置.md"
-_OPENAI_API_KEY = "sk-84b0c3b8a1114b11bf020b646b1627a9"
+_OPENAI_API_KEY = "sk-your-deepseek-api-key-here"
 _OPENAI_BASE_URL = "https://api.deepseek.com"
 _OPENAI_MODEL = "deepseek-v4-flash"
 

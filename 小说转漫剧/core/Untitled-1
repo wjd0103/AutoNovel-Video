@@ -1,7 +1,0 @@
-https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedance-2-0-fast/02177927https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedance-2-0-fast/02177927530126000000000000000000000ffffac1545f52bdf68.mp4530126000000000000000000000ffffac1545f52bdf68.mp4import requests
-
-url = "https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedance-2-0-fast/02177927530126000000000000000000000ffffac1545f52bdf68.mp4"
-resp = requests.get(url, timeout=120)
-with open("test_video.mp4", "wb") as f:
-    f.write(resp.content)
-print("视频下载完成!")

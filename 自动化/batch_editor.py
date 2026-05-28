@@ -23,7 +23,7 @@ from openai import OpenAI
 NOVEL_NAME = "万古神龙：我的血脉全靠吞"
 CHAPTERS = [1, 2, 3]
 MODEL_NAME = "deepseek-v4-flash"
-API_KEY = "sk-84b0c3b8a1114b11bf020b646b1627a9"
+API_KEY = "sk-your-deepseek-api-key-here"
 BASE_URL = "https://api.deepseek.com"
 
 EDITOR_PROMPT = """你是一位专业的文字编辑，负责对小说章节进行"去 AI 味"精修。
