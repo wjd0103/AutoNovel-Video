@@ -1,4 +1,4 @@
-"""小说转漫剧 —— 核心引擎"""
+"""AI短剧制作自动流程 —— 核心引擎"""
 
 from .asset_manager import (
     AssetBatchResult,

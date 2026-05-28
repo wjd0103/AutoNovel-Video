@@ -1,10 +1,11 @@
-"""小说转漫剧 —— 总流水线入口
+"""AI短剧制作自动流程 —— 总流水线入口
 
-四阶段一键运行:
-  Phase 1/4  读取小说原文
-  Phase 2/4  DeepSeek 解析 → 分镜脚本 → 保存剧本
-  Phase 3/4  并行下载 图片 & 配音资产（角色一致性）
-  Phase 4/4  视频合成 & 字幕叠加 → 最终 mp4
+五阶段一键运行:
+  Phase 1/5  读取小说原文
+  Phase 2/5  DeepSeek 解析 → 分镜脚本 → 保存剧本
+  Phase 3/5  并行下载 图片 & 配音资产（角色一致性）
+  Phase 4/5  Seedance 图生视频
+  Phase 5/5  视频合成 & 字幕叠加 → 最终 mp4
 
 用法:
   python main.py                          # 使用默认 sample_novel.txt
@@ -39,7 +40,7 @@ logger = logging.getLogger("pipeline")
 # ═══════════════════════════════════════════════════════════════
 
 ROOT = Path(__file__).resolve().parent
-DEFAULT_INPUT = ROOT / "tests" / "sample_novel.txt"
+DEFAULT_INPUT = ROOT / "测试" / "sample_novel.txt"
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -212,7 +213,7 @@ def phase_storyboard(
 
     if dry_run:
         _skip("干跑模式：使用模拟分镜数据")
-        from core.storyboard_agent import SceneModel, StoryboardModel
+        from 核心.storyboard_agent import SceneModel, StoryboardModel
 
         return StoryboardModel(
             series_title=series_title or "模拟剧集",
@@ -228,7 +229,7 @@ def phase_storyboard(
             ],
         )
 
-    from core.storyboard_agent import generate_storyboard, save_script
+    from 核心.storyboard_agent import generate_storyboard, save_script
 
     logger.info("开始调用 DeepSeek…")
     t0 = time.perf_counter()
@@ -264,11 +265,11 @@ def phase_assets(
 
     if dry_run:
         _skip("干跑模式：跳过资产下载")
-        from core.asset_manager import AssetBatchResult
+        from 核心.asset_manager import AssetBatchResult
 
         return AssetBatchResult(total_elapsed=0)
 
-    from core.asset_manager import generate_assets
+    from 核心.asset_manager import generate_assets
 
     logger.info("开始并行下载…")
     t0 = time.perf_counter()
@@ -393,7 +394,7 @@ def phase_video(
         _info(f"（模拟输出路径: {out}）")
         return out
 
-    from core.video_compiler import VideoCompiler
+    from 核心.video_compiler import VideoCompiler
 
     logger.info("开始视频合成…")
     t0 = time.perf_counter()
@@ -419,7 +420,7 @@ def phase_video(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="小说转漫剧 —— 一键视频生成流水线",
+        description="AI短剧制作自动流程 —— 一键视频生成流水线",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
@@ -458,7 +459,7 @@ def main() -> None:
 
     print()
     print("╔" + "═" * 48 + "╗")
-    print("║" + "    📺  小说 → 漫剧  Agent 流水线".ljust(37) + "║")
+    print("║" + "    📺  AI短剧制作自动流程".ljust(37) + "║")
     print("║" + f"    输入: {args.input.name}".ljust(37) + "║")
     mode = "DRY-RUN (不调用 API)" if args.dry_run else "正式运行"
     print("║" + f"    模式: {mode}".ljust(37) + "║")

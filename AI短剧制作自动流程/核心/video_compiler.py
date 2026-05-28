@@ -22,8 +22,8 @@ from moviepy import (
     concatenate_videoclips,
 )
 
-from config import config as cfg
-from core.storyboard_agent import CameraMovement, SceneModel, StoryboardModel
+from 配置 import config as cfg
+from 核心.storyboard_agent import CameraMovement, SceneModel, StoryboardModel
 
 logger = logging.getLogger(__name__)
 

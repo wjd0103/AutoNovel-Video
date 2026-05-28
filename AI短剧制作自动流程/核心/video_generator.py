@@ -18,7 +18,7 @@ from typing import Optional
 
 import requests
 
-from config import config as cfg
+from 配置 import config as cfg
 
 logger = logging.getLogger(__name__)
 

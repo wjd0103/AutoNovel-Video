@@ -13,7 +13,7 @@ from typing import Literal, Optional
 import pydantic
 from openai import OpenAI
 
-from config import config as cfg
+from 配置 import config as cfg
 
 CameraMovement = Literal[
     "static", "pan_left", "pan_right", "zoom_in", "zoom_out", "tilt_up", "tilt_down"
