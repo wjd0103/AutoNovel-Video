@@ -3,6 +3,8 @@
 将 Seedream 生成的静态图片转化为 2-5 秒的短视频片段，
 使用豆包 Seedance 2.0 的 image-to-video 能力。
 
+支持传入角色参考图（character_reference_images）确保角色视觉一致性。
+
 API 模式: 异步任务（提交 → 轮询 → 下载 mp4）
 """
 
@@ -64,12 +66,16 @@ class VideoBatchResult:
 
 
 class SeedanceGenerator:
-    """将静态图片转化为短视频片段。
+    """将静态图片转化为短视频片段，支持角色参考图。
 
     用法::
 
         gen = SeedanceGenerator()
-        result = gen.generate_clips(image_paths, durations, prompts)
+        result = gen.generate_clips(
+            image_paths, durations, prompts, scene_ids,
+            character_refs={"苏晚": "data:image/png;base64,...", ...},
+            shot_characters={1: ["苏晚", "陆承安"], ...},
+        )
         # → output/videos/scene_01.mp4 ...
     """
 
@@ -105,14 +111,18 @@ class SeedanceGenerator:
         durations: list[float],
         prompts: list[str],
         scene_ids: Optional[list[int]] = None,
+        character_refs: Optional[dict[str, str]] = None,
+        shot_characters: Optional[dict[int, list[str]]] = None,
     ) -> VideoBatchResult:
         """批量生成视频片段。
 
         Args:
             image_paths: 每镜的源图片路径
-            durations: 每镜的目标视频时长（秒，对齐配音长度）
+            durations: 每镜的目标视频时长（秒）
             prompts: 每镜的运动描述 prompt（中文）
             scene_ids: 分镜 ID 列表（可选）
+            character_refs: {角色名: base64 数据 URL} 参考图映射
+            shot_characters: {scene_id: [角色名列表]} 每镜的角色列表
 
         Returns:
             VideoBatchResult
@@ -125,17 +135,29 @@ class SeedanceGenerator:
 
         t_start = time.perf_counter()
         logger.info("=" * 60)
-        logger.info("开始 Seedance 视频生成  分镜数=%d  model=%s", n, self._model)
+        logger.info("开始 Seedance 视频生成  分镜数=%d  model=%s  ref_images=%d",
+                     n, self._model, len(character_refs or {}))
 
         # ── 阶段一: 并行提交所有任务 ──────────────────────────
         tasks: list[VideoTask] = []
         with ThreadPoolExecutor(max_workers=self._max_workers) as executor:
             futures: dict = {}
             for i in range(n):
+                sid = scene_ids[i]
                 dur = max(1.0, min(15.0, durations[i]))
+
+                # 查找本镜的角色参考图
+                refs_for_shot: list[str] = []
+                if character_refs and shot_characters:
+                    char_names = shot_characters.get(sid, [])
+                    for name in char_names:
+                        if name in character_refs:
+                            refs_for_shot.append(character_refs[name])
+
                 f = executor.submit(
                     self._submit_task,
-                    image_paths[i], dur, prompts[i], scene_ids[i],
+                    image_paths[i], dur, prompts[i], sid,
+                    character_refs=refs_for_shot,
                 )
                 futures[f] = i
 
@@ -175,21 +197,33 @@ class SeedanceGenerator:
 
     def _submit_task(
         self, image_path: Path, duration: float, prompt: str, scene_id: int,
+        character_refs: Optional[list[str]] = None,
     ) -> VideoTask:
         t0 = time.perf_counter()
 
+        # content 数组: text + 源图片 + 角色参考图(可选)
+        content: list[dict] = [
+            {"type": "text", "text": prompt},
+            {"type": "image_url", "image_url": {"url": self._upload_image(image_path)}},
+        ]
+
+        if character_refs:
+            for ref_url in character_refs:
+                content.append({
+                    "type": "image_url",
+                    "image_url": {"url": ref_url},
+                })
+
         payload: dict = {
             "model": self._model,
-            "content": [
-                {
-                    "type": "text",
-                    "text": prompt,
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": self._upload_image(image_path)},
-                uests.post(
-              "Content-Type": "application/json",
+            "content": content,
+        }
+
+        resp = requests.post(
+            f"{self._base_url}/contents/generations/tasks",
+            headers={
+                "Authorization": f"Bearer {self._api_key}",
+                "Content-Type": "application/json",
             },
             json=payload,
             timeout=30,

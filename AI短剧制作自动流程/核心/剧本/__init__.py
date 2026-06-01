@@ -1,13 +1,38 @@
-"""小说情节拆解 & 分镜脚本生成
-
-Pipeline:
-  1. 读取原始小说章节
-  2. LLM 拆解为 「场景 → 镜头 → 对白/旁白」
-  3. 为每个镜头生成出图 Prompt 和配音文本
-  4. 输出结构化分镜脚本（JSON / Pydantic Model）
+"""剧本处理模块 —— 全剧设定、分集大纲、分镜生成
 """
 
-from .script_parser import ScriptParser
-from .prompt_builder import PromptBuilder
+from .script_models import (
+    CharacterSetting,
+    EpisodeOutline,
+    EpisodeStoryboard,
+    SceneSetting,
+    ScriptSetting,
+    SeriesScript,
+    ShotModel,
+    ShotVideoPrompt,
+)
+from .script_parser import (
+    save_series_script,
+    save_series_script_markdown,
+    save_episode_storyboard,
+)
+from .outline_agent import (
+    OutlineAgent,
+    generate_outline,
+)
 
-__all__ = ["ScriptParser", "PromptBuilder"]
+__all__ = [
+    "CharacterSetting",
+    "EpisodeOutline",
+    "EpisodeStoryboard",
+    "SceneSetting",
+    "ScriptSetting",
+    "SeriesScript",
+    "ShotModel",
+    "ShotVideoPrompt",
+    "save_series_script",
+    "save_series_script_markdown",
+    "save_episode_storyboard",
+    "OutlineAgent",
+    "generate_outline",
+]

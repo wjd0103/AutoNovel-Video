@@ -1,17 +1,16 @@
-"""AI短剧制作自动流程 —— 总流水线入口
+"""AI短剧制作自动流程 —— 4 步流水线入口
 
-五阶段一键运行:
-  Phase 1/5  读取小说原文
-  Phase 2/5  DeepSeek 解析 → 分镜脚本 → 保存剧本
-  Phase 3/5  并行下载 图片 & 配音资产（角色一致性）
-  Phase 4/5  Seedance 图生视频
-  Phase 5/5  视频合成 & 字幕叠加 → 最终 mp4
+Step 1/4  读取小说原文 → 全剧设定 + 分集大纲
+Step 2/4  按每集生成详细分镜（镜头/景别/画面/时长/音频/备注）
+Step 3/4  分镜描述 → 视频生成 Prompt → 调用 API 生成
+Step 4/4  各镜视频合并 → 完整短剧成片
 
 用法:
-  python main.py                          # 使用默认 sample_novel.txt
-  python main.py --input chapters/ch1.txt # 指定输入文件
-  python main.py --series-title "第1集·觉醒"  # 指定剧集标题
-  python main.py --dry-run                # 干跑模式（跳过 API 调用）
+  python main.py                                # 使用默认 sample_novel.txt
+  python main.py --input chapters/ch1.txt       # 指定输入文件
+  python main.py --title "我的短剧"              # 指定短剧名称
+  python main.py --dry-run                      # 干跑模式（跳过 API 调用）
+  python main.py --episodes 3                   # 指定分集数
 """
 
 from __future__ import annotations
@@ -19,10 +18,10 @@ from __future__ import annotations
 import argparse
 import json
 import logging
-import os
 import sys
 import time
 from pathlib import Path
+from typing import Optional
 
 # ═══════════════════════════════════════════════════════════════
 # 日志
@@ -48,8 +47,7 @@ DEFAULT_INPUT = ROOT / "测试" / "sample_novel.txt"
 # ═══════════════════════════════════════════════════════════════
 
 SEPARATOR = "━" * 50
-PHASE_PREFIX = "◆  [Phase {phase}/{total}]"
-TOTAL_PHASES = 5
+TOTAL_PHASES = 4
 
 
 def _banner(text: str) -> None:
@@ -60,9 +58,8 @@ def _banner(text: str) -> None:
 
 
 def _phase(phase: int, total: int, text: str) -> None:
-    header = PHASE_PREFIX.format(phase=phase, total=total)
     print()
-    print(f"{header}  {text}")
+    print(f"◆  [Phase {phase}/{total}]  {text}")
     print("─" * 50)
 
 
@@ -83,94 +80,160 @@ def _info(text: str) -> None:
 
 
 # ═══════════════════════════════════════════════════════════════
-# 角色配置加载
+# 确认节点辅助
 # ═══════════════════════════════════════════════════════════════
 
-def _load_characters(char_config_path: Optional[Path]) -> tuple[Optional[list[dict]], Optional[Path]]:
-    """加载角色配置文件，返回 (角色列表, 文件路径)。
 
-    支持 JSON 和 YAML 格式。YAML 需要 pyyaml。
-    """
-    if char_config_path is None:
-        return None, None
-
-    if not char_config_path.is_file():
-        _fail(f"角色配置文件不存在: {char_config_path}")
-        return None, None
-
-    raw = char_config_path.read_text(encoding="utf-8")
-
-    if char_config_path.suffix in (".yaml", ".yml"):
+def _print_menu(title: str, options: list[str]) -> str:
+    """打印交互菜单，返回用户选择"""
+    print()
+    print(f"  {'═' * 48}")
+    print(f"  ⚠  {title}")
+    print(f"  {'═' * 48}")
+    for i, opt in enumerate(options, 1):
+        print(f"  [{i}] {opt}")
+    print()
+    while True:
         try:
-            import yaml
-            data = yaml.safe_load(raw)
-        except ImportError:
-            _fail("需要安装 pyyaml: pip install pyyaml")
-            return None, None
-    else:
-        data = json.loads(raw)
-
-    characters = data.get("characters", []) if isinstance(data, dict) else data
-    _info(f"已加载 {len(characters)} 个角色定义")
-    for ch in characters:
-        _info(f"  {ch.get('voice_id')} → {ch.get('name')} (TTS: {ch.get('voice_name', 'default')})")
-    return characters, char_config_path
-
-
-def _update_character_refs(
-    char_config_path: Optional[Path],
-    characters: Optional[list[dict]],
-    image_results: list,
-    storyboard: "StoryboardModel" = None,
-) -> bool:
-    """首次生成后将成功的场景图片关联到角色配置的 reference_image 字段。"""
-    if not char_config_path or not characters:
-        return False
-
-    updated = False
-    for ch in characters:
-        vid = ch.get("voice_id", "")
-        if ch.get("reference_image", ""):
-            continue
-
-        scene_id = None
-        if storyboard:
-            for sc in storyboard.scenes:
-                if sc.voice_id == vid or sc.voice_id == (vid + "_01"):
-                    scene_id = sc.id
-                    break
-
-        if scene_id is None:
-            continue
-
-        for r in image_results:
-            if r.success and r.scene_id == scene_id:
-                ch["reference_image"] = str(r.path)
-                logger.info("角色 %s (%s) 参考图: %s", ch.get("name"), vid, r.path.name)
-                updated = True
-                break
-
-    if updated:
-        _write_character_config(char_config_path, characters)
-        _info("角色参考图已保存到配置文件")
-    return updated
-
-
-def _write_character_config(path: Path, characters: list[dict]) -> None:
-    """写回角色配置文件（保留格式）。"""
-    if path.suffix in (".yaml", ".yml"):
-        try:
-            import yaml
-            data = {"characters": characters}
-            path.write_text(yaml.safe_dump(data, allow_unicode=True, default_flow_style=False), encoding="utf-8")
-            return
-        except ImportError:
+            choice = input(f"  请输入选项 (1-{len(options)}): ").strip()
+            idx = int(choice) - 1
+            if 0 <= idx < len(options):
+                return options[idx]
+        except (ValueError, IndexError):
             pass
+        print(f"  无效输入，请输入 1-{len(options)} 之间的数字")
 
-    path.write_text(
-        json.dumps({"characters": characters}, ensure_ascii=False, indent=2),
-        encoding="utf-8",
+
+def _confirm_character_portraits(asset_library, script_title: str) -> None:
+    """确认节点：让用户确认/替换/上传角色参考图"""
+    from 核心.asset_library import AssetLibrary
+    from 核心.剧本.script_models import SCRIPT_DIR
+    from 核心.资产.image_generator import CharacterPortraitGenerator, CHAR_REF_DIR
+
+    print()
+    _info("─" * 40)
+    _info("【确认节点】角色肖像参考图确认")
+    _info("─" * 40)
+
+    # 列出当前状态
+    has_all_images = True
+    for ch in asset_library.characters:
+        ref_path = ch.reference_image_path
+        if ref_path and Path(ref_path).is_file():
+            _info(f"  ✅ {ch.name}: {Path(ref_path).name}  ({Path(ref_path).stat().st_size // 1024} KB)")
+        else:
+            has_all_images = False
+            _info(f"  ⚠️  {ch.name}: 暂无参考图")
+
+    choice = _print_menu(
+        f"角色肖像图确认 — {script_title}",
+        [
+            "使用当前图片，继续",
+            "手动指定新图片路径（替换部分角色）",
+            "查看角色描述后重新选择",
+            "跳过角色参考图（不使用角色固定）",
+        ],
     )
+
+    if choice == "跳过角色参考图（不使用角色固定）":
+        for ch in asset_library.characters:
+            ch.reference_image_path = ""
+        _info("已清空所有角色参考图")
+        asset_path = SCRIPT_DIR / f"{script_title}_视觉资产库.json"
+        asset_library.save(asset_path)
+        return
+
+    if "手动指定新图片路径" in choice:
+        print()
+        _info("请输入每个角色对应的图片路径（留空=保持不变，输入 skip=跳过该角色）:")
+        print()
+        for ch in asset_library.characters:
+            current = ch.reference_image_path or "（无）"
+            print(f"  {ch.name}: 当前路径 = {current}")
+            inp = input(f"  → 新路径: ").strip()
+            if inp.lower() == "skip":
+                ch.reference_image_path = ""
+                _info(f"  ✅ 已清空 {ch.name} 的参考图")
+            elif inp and Path(inp).is_file():
+                ch.reference_image_path = inp
+                _info(f"  ✅ {ch.name} → {Path(inp).name}")
+            elif inp:
+                _info(f"  ⚠️  文件不存在: {inp}，保持不变")
+        asset_path = SCRIPT_DIR / f"{script_title}_视觉资产库.json"
+        asset_library.save(asset_path)
+        _info("资产库已更新")
+        return
+
+    if "查看角色描述" in choice or "重新选择" in choice:
+        print()
+        _info("角色外貌描述（供你手动准备参考图参考）:")
+        for ch in asset_library.characters:
+            print(f"\n  ── {ch.name} ──")
+            print(f"  外貌: {ch.appearance}")
+            print(f"  穿着: {ch.clothing or '（无特定）'}")
+            print(f"  英文关键词: {ch.visual_keywords_en}")
+        print()
+        _confirm_character_portraits(asset_library, script_title)
+        return
+
+    # 使用当前图片 —— 检查是否缺少图片，如果缺少可以尝试自动生成
+    if not has_all_images:
+        gen = CharacterPortraitGenerator()
+        if gen.enabled:
+            choice2 = _print_menu(
+                "部分角色缺少参考图",
+                ["自动生成缺失的角色肖像", "跳过，不使用参考图"],
+            )
+            if "自动生成" in choice2:
+                _info("正在生成缺失角色肖像…")
+                missing = {ch.name for ch in asset_library.characters if not ch.reference_image_path or not Path(ch.reference_image_path).is_file()}
+                for ch in asset_library.characters:
+                    if ch.name in missing:
+                        try:
+                            path = gen._generate_one(ch)
+                            ch.reference_image_path = str(path)
+                            _info(f"  ✅ {ch.name} 已生成")
+                        except Exception as e:
+                            _info(f"  ❌ {ch.name} 生成失败: {e}")
+                asset_path = SCRIPT_DIR / f"{script_title}_视觉资产库.json"
+                asset_library.save(asset_path)
+        else:
+            _info("IMAGE_API_KEY 未配置，无法自动生成")
+            for ch in asset_library.characters:
+                if not ch.reference_image_path or not Path(ch.reference_image_path).is_file():
+                    ch.reference_image_path = ""
+
+    # 最终汇总
+    _info("最终角色肖像配置:")
+    for ch in asset_library.characters:
+        if ch.reference_image_path and Path(ch.reference_image_path).is_file():
+            _info(f"  ✅ {ch.name}: {Path(ch.reference_image_path).name}")
+        else:
+            _info(f"  ⏭  {ch.name}: 无参考图")
+
+
+def _confirm_video_result(output_path: Path, label: str) -> bool:
+    """确认节点：让用户确认生成结果"""
+    print()
+    _info("─" * 40)
+    _info(f"【确认节点】{label}")
+    _info("─" * 40)
+
+    if output_path.is_file():
+        size_mb = output_path.stat().st_size / (1024 * 1024)
+        _info(f"  文件: {output_path.name}")
+        _info(f"  大小: {size_mb:.1f} MB")
+    else:
+        _info(f"  文件不存在: {output_path}")
+
+    choice = _print_menu(
+        label,
+        ["✅ 确认通过，继续下一阶段", "⏹  停止流水线"],
+    )
+    if "停止" in choice:
+        _info("用户选择停止，流水线结束")
+        sys.exit(0)
+    return True
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -199,235 +262,268 @@ def phase_read_text(path: Path) -> str:
 
 
 # ═══════════════════════════════════════════════════════════════
-# 阶段二：调用 DeepSeek 生成分镜
+# 阶段二：全剧设定 + 分集大纲
+# ═══════════════════════════════════════════════════════════════
+
+
+def phase_outline(
+    novel_text: str,
+    series_title: str,
+    dry_run: bool,
+) -> tuple:
+    _phase(2, TOTAL_PHASES, "正在生成全剧设定 & 分集大纲")
+
+    if dry_run:
+        _skip("干跑模式：使用模拟剧本大纲")
+        script = _mock_outline(series_title)
+        # 干跑也保存资产库用于后续验证
+        from 核心.asset_library import extract_asset_library
+        from 核心.剧本.script_models import SCRIPT_DIR
+        library = extract_asset_library(script)
+        asset_path = SCRIPT_DIR / f"{script.settings.title}_视觉资产库.json"
+        library.save(asset_path)
+        _info(f"视觉资产库已保存: {asset_path.name}")
+        return script
+
+    from 核心.剧本.outline_agent import generate_outline
+    from 核心.剧本.script_parser import save_series_script, save_series_script_markdown
+    from 核心.asset_library import extract_asset_library
+
+    logger.info("开始调用 DeepSeek 生成剧本大纲…")
+    t0 = time.perf_counter()
+    script = generate_outline(novel_text, series_title=series_title)
+    elapsed = time.perf_counter() - t0
+
+    _done(f"生成 | 耗时 {elapsed:.1f}s")
+    _info(f"短剧名: {script.settings.title}")
+    _info(f"风格: {script.settings.genre} | 视觉: {script.settings.visual_style}")
+    _info(f"角色: {len(script.settings.characters)} 人")
+    _info(f"分集: {len(script.episodes)} 集")
+
+    for ep in script.episodes:
+        _info(f"  第{ep.episode_number}集 · {ep.title}  {ep.estimated_duration}")
+
+    json_path = save_series_script(script)
+    md_path = save_series_script_markdown(script)
+    _info(f"剧本已保存: {json_path.parent.name}/{json_path.name}")
+    _info(f"大纲已保存: {md_path.parent.name}/{md_path.name}")
+
+    # ── 提取并保存全局视觉资产库 ──
+    from 核心.剧本.script_models import SCRIPT_DIR
+    library = extract_asset_library(script)
+    asset_path = SCRIPT_DIR / f"{script.settings.title}_视觉资产库.json"
+    library.save(asset_path)
+    _info(f"视觉资产库已保存: {asset_path.name} ({len(library.characters)} 角色, {len(library.scenes)} 场景)")
+    _info("─" * 40)
+    _info("资产库前缀示例（将自动拼入每个镜头 Prompt）：")
+    prefix_preview = library.build_global_prefix()[:100].replace("\n", " ")
+    _info(f"  {prefix_preview}…")
+
+    # ── 生成角色肖像（供 Seedance 角色参考图使用）──
+    if not dry_run:
+        from 核心.资产.image_generator import CharacterPortraitGenerator
+        gen = CharacterPortraitGenerator()
+        if gen.enabled:
+            _info("正在生成角色参考肖像…")
+            portrait_map = gen.generate_all(library)
+            if portrait_map:
+                library.update_reference_images(portrait_map)
+                library.save(asset_path)
+                _info(f"角色肖像已生成: {len(portrait_map)} 张 → {list(portrait_map.values())[0].parent.name}")
+                for name, p in portrait_map.items():
+                    _info(f"  {name}: {p.name}")
+        else:
+            _info("IMAGE_API_KEY 未配置，跳过角色肖像生成")
+    else:
+        _info("干跑模式：跳过角色肖像生成")
+
+    return script
+
+
+def _mock_outline(series_title: str):
+    from 核心.剧本.script_models import (
+        CharacterSetting, EpisodeOutline, SceneSetting, ScriptSetting, SeriesScript,
+    )
+
+    return SeriesScript(
+        settings=ScriptSetting(
+            title=series_title or "模拟短剧",
+            genre="都市悬疑",
+            visual_style="赛博朋克霓虹色调",
+            tags=["悬疑", "反转"],
+            bgm_description="紧张电子配乐",
+            characters=[
+                CharacterSetting(name="林越", gender="男", appearance="黑色短发，灰色战术夹克",
+                                 personality="冷静果断", voice_id="male_lead", voice_name="zh-CN-YunxiNeural"),
+                CharacterSetting(name="赵绫", gender="女", appearance="棕色短发，灰绿色战术服",
+                                 personality="直率勇敢", voice_id="female_lead", voice_name="zh-CN-XiaoxiaoNeural"),
+            ],
+            important_scenes=[
+                SceneSetting(name="废墟街道", description="夜晚的废墟，月光照射，断壁残垣"),
+                SceneSetting(name="安全区大门", description="巨大的金属门，探照灯扫射"),
+            ],
+        ),
+        episodes=[
+            EpisodeOutline(episode_number=1, title="黑暗中的猎手",
+                           outline="林越和赵绫在废墟中猎杀变异体，遇到安全区委员会的紧急任务。",
+                           estimated_duration="3-5分钟", cliffhanger="一只领主级变异体正在逼近安全区。",
+                           chapter_range="第1章"),
+            EpisodeOutline(episode_number=2, title="领主来袭",
+                           outline="安全区面临领主级变异体的威胁，众人制定作战计划。",
+                           estimated_duration="3-5分钟", cliffhanger="沈薇发现了一个惊人的秘密。",
+                           chapter_range="第2-3章"),
+        ],
+    )
+
+
+# ═══════════════════════════════════════════════════════════════
+# 阶段三：按集生成分镜
 # ═══════════════════════════════════════════════════════════════
 
 
 def phase_storyboard(
+    script,
     novel_text: str,
-    series_title: str,
     dry_run: bool,
-    characters: Optional[list[dict]] = None,
-) -> "StoryboardModel":
-    _phase(2, TOTAL_PHASES, "正在调用 DeepSeek 解析小说 → 分镜脚本")
+) -> list:
+    _phase(3, TOTAL_PHASES, "正在按集生成详细分镜")
 
-    if dry_run:
-        _skip("干跑模式：使用模拟分镜数据")
-        from 核心.storyboard_agent import SceneModel, StoryboardModel
+    from 核心.storyboard_agent import ShotStoryboardAgent
+    from 核心.剧本.script_parser import save_episode_storyboard
 
-        return StoryboardModel(
-            series_title=series_title or "模拟剧集",
-            scenes=[
-                SceneModel(
-                    id=1, character_list=["主角"], image_prompt="anime style, consistent character design, cinematic lighting, a man standing in ruins at night",
-                    dialogue="准备开火。", voice_id="male_lead", camera_movement="static",
-                ),
-                SceneModel(
-                    id=2, character_list=["主角", "配角"], image_prompt="anime style, consistent character design, cinematic lighting, two people crouching behind rubble",
-                    dialogue="这次能活下来吗？", voice_id="female_lead", camera_movement="zoom_in",
-                ),
-            ],
+    series_setting_json = ""
+    if script and not dry_run:
+        series_setting_json = script.settings.model_dump_json(indent=2, ensure_ascii=False)
+
+    agent = ShotStoryboardAgent()
+    all_storyboards = []
+
+    episodes_to_process = script.episodes if script else []
+    if not episodes_to_process:
+        _skip("无分集数据")
+        return all_storyboards
+
+    for ep in episodes_to_process:
+        _info(f"正在处理 第{ep.episode_number}集 · {ep.title}")
+
+        if dry_run:
+            from 核心.storyboard_agent import EpisodeStoryboard, ShotModel
+            storyboard = EpisodeStoryboard(
+                episode_number=ep.episode_number,
+                episode_title=ep.title,
+                shots=[
+                    ShotModel(id=1, camera_movement="固定", shot_type="远景",
+                              scene_content="模拟画面内容", duration=4.0,
+                              audio_content="模拟音频", notes="", character_list=["林越"]),
+                ],
+            )
+        else:
+            t0 = time.perf_counter()
+            storyboard = agent.run(
+                novel_text,
+                episode_number=ep.episode_number,
+                episode_title=ep.title,
+                series_setting=series_setting_json,
+            )
+            elapsed = time.perf_counter() - t0
+            _info(f"  生成 {len(storyboard.shots)} 个分镜 | 耗时 {elapsed:.1f}s")
+
+        json_path, md_path = save_episode_storyboard(storyboard)
+        _info(f"  分镜已保存: {md_path}")
+        all_storyboards.append(storyboard)
+
+    _done(f"全部 {len(all_storyboards)} 集分镜生成完成")
+    return all_storyboards
+
+
+# ═══════════════════════════════════════════════════════════════
+# 阶段四：生成 Prompt 并模拟调用视频生成
+# ═══════════════════════════════════════════════════════════════
+
+
+def phase_prompts(
+    storyboards: list,
+    script,
+    dry_run: bool,
+) -> None:
+    _phase(4, TOTAL_PHASES, "正在生成视频 Prompt 并输出（前置资产库前缀）")
+
+    from 核心.prompt_generator import PromptGenerator
+    from 核心.剧本.script_models import EPISODE_DIR, SCRIPT_DIR
+    from 核心.asset_library import AssetLibrary
+
+    # ── 从 JSON 加载之前保存的全局视觉资产库 ──
+    asset_library = None
+    if script:
+        asset_path = SCRIPT_DIR / f"{script.settings.title}_视觉资产库.json"
+        if asset_path.is_file():
+            asset_library = AssetLibrary.load(asset_path)
+            _info(f"已加载视觉资产库: {asset_path.name}")
+        else:
+            _info("视觉资产库文件不存在，使用传统模式")
+
+    # 旧模式 fallback：从 script 直接取角色数据
+    characters_data = []
+    if script and not asset_library:
+        for ch in script.settings.characters:
+            characters_data.append({
+                "name": ch.name,
+                "appearance": ch.appearance,
+                "voice_id": ch.voice_id,
+                "voice_name": ch.voice_name,
+            })
+
+    generator = PromptGenerator(
+        visual_style=script.settings.visual_style if script else "anime style",
+        characters=characters_data if characters_data else None,
+        asset_library=asset_library,
+    )
+
+    total_shots = 0
+    for storyboard in storyboards:
+        ep_dir = EPISODE_DIR / f"第{storyboard.episode_number:02d}集"
+        ep_dir.mkdir(parents=True, exist_ok=True)
+
+        plans = generator.generate_episode_plans(storyboard)
+        total_shots += len(plans)
+
+        prompt_path = ep_dir / "视频Prompt.json"
+        prompt_path.write_text(
+            json.dumps([p.model_dump() for p in plans], ensure_ascii=False, indent=2),
+            encoding="utf-8",
         )
 
-    from 核心.storyboard_agent import generate_storyboard, save_script
+        md_path = ep_dir / "视频Prompt.md"
+        md_lines = [f"# 第{storyboard.episode_number}集 · {storyboard.episode_title} —— 视频 Prompt", "", "| 镜号 | 时长 | 配音 | Prompt |", "|------|------|------|-------|"]
+        for p in plans:
+            prompt_short = p.image_prompt[:80] + "…" if len(p.image_prompt) > 80 else p.image_prompt
+            md_lines.append(f"| {p.shot_id} | {p.duration}s | {p.voice_id} | {prompt_short} |")
+        md_path.write_text("\n".join(md_lines), encoding="utf-8")
 
-    logger.info("开始调用 DeepSeek…")
-    t0 = time.perf_counter()
-    storyboard = generate_storyboard(novel_text, series_title=series_title, characters=characters)
-    elapsed = time.perf_counter() - t0
+        _info(f"  第{storyboard.episode_number}集: {len(plans)} 个 Prompt 已保存")
 
-    _done(f"生成 {len(storyboard.scenes)} 个分镜 | 耗时 {elapsed:.1f}s")
-    _info(f"剧集标题: {storyboard.series_title}")
+        if dry_run:
+            _skip("干跑模式：跳过实际 API 调用")
+        else:
+            _info(f"  提示: 可将 Prompt 发送到视频生成 API 生成视频片段")
 
-    for s in storyboard.scenes:
-        cam = s.camera_movement
-        _info(f"  #{s.id:02d}  [{cam:>9s}]  voice={s.voice_id:>12s}  「{s.dialogue[:30]}」")
-
-    json_path, md_path = save_script(storyboard, series_title or storyboard.series_title)
-    _info(f"剧本已保存: {json_path.name}")
-    _info(f"审阅脚本: {md_path.name}")
-
-    return storyboard
-
-
-# ═══════════════════════════════════════════════════════════════
-# 阶段三：并行下载资产
-# ═══════════════════════════════════════════════════════════════
-
-
-def phase_assets(
-    storyboard: "StoryboardModel",
-    dry_run: bool,
-    max_workers: int,
-    characters: Optional[list[dict]] = None,
-) -> "AssetBatchResult":
-    _phase(3, TOTAL_PHASES, f"正在并行下载图片 & 配音资产 (workers={max_workers})")
-
-    if dry_run:
-        _skip("干跑模式：跳过资产下载")
-        from 核心.asset_manager import AssetBatchResult
-
-        return AssetBatchResult(total_elapsed=0)
-
-    from 核心.asset_manager import generate_assets
-
-    logger.info("开始并行下载…")
-    t0 = time.perf_counter()
-    result = generate_assets(storyboard, max_workers=max_workers, characters=characters)
-    elapsed = time.perf_counter() - t0
-
-    _info(f"图片: {result.image_ok}/{result.scene_count} 成功")
-    _info(f"音频: {result.audio_ok}/{result.scene_count} 成功")
-    _info(f"耗时: {elapsed:.1f}s")
-
-    # 失败详情
-    for r in result.image_results + result.audio_results:
-        if not r.success and r.error:
-            _fail(f"scene_{r.scene_id:02d} {r.kind} 失败: {r.error[:100]}")
-
-    if result.image_ok == 0 and result.audio_ok == 0:
-        _fail("所有资产下载均失败，流水线终止")
-        sys.exit(1)
-
-    if result.image_ok == result.scene_count and result.audio_ok == result.scene_count:
-        _done("全部资产下载成功")
-    else:
-        _skip(f"部分资产失败，继续合成…")
-
-    return result
-
-
-# ═══════════════════════════════════════════════════════════════
-# 阶段四：Seedance 图生视频
-# ═══════════════════════════════════════════════════════════════
-
-
-def phase_video_clips(
-    storyboard: "StoryboardModel",
-    dry_run: bool,
-) -> Optional[Path]:
-    _phase(4, TOTAL_PHASES, "正在调用 Seedance 将图片转化为短视频片段")
-
-    if dry_run:
-        _skip("干跑模式：跳过 Seedance 视频生成")
-        return None
-
-    scenes_with_dialogue = [s for s in storyboard.scenes if s.dialogue.strip()]
-    if not scenes_with_dialogue:
-        _skip("无有效对话分镜，跳过视频生成")
-        return None
-
-    from core.video_generator import SeedanceGenerator, VIDEO_DIR
-
-    gen = SeedanceGenerator()
-
-    image_paths: list[Path] = []
-    durations: list[float] = []
-    prompts: list[str] = []
-    ids: list[int] = []
-
-    from moviepy import AudioFileClip
-
-    for s in scenes_with_dialogue:
-        img_p = Path("output/images") / f"scene_{s.id:02d}.png"
-        aud_p = Path("output/audio") / f"scene_{s.id:02d}.mp3"
-        if not img_p.is_file():
-            continue
-
-        dur = 3.0
-        if aud_p.is_file():
-            try:
-                ac = AudioFileClip(str(aud_p))
-                dur = ac.duration + 0.5
-                ac.close()
-            except Exception:
-                pass
-
-        motion_prompt = s.dialogue
-        if s.camera_movement and s.camera_movement != "static":
-            cam_cn = {
-                "zoom_in": "镜头缓缓推进", "zoom_out": "镜头缓缓拉远",
-                "pan_left": "镜头向左平移", "pan_right": "镜头向右平移",
-                "tilt_up": "镜头向上摇", "tilt_down": "镜头向下摇",
-            }
-            motion_prompt = f"{cam_cn.get(s.camera_movement, '')}，{s.dialogue}"
-
-        image_paths.append(img_p)
-        durations.append(dur)
-        prompts.append(motion_prompt)
-        ids.append(s.id)
-
-    if not image_paths:
-        _skip("无可用图片，跳过视频生成")
-        return None
-
-    _info(f"提交 {len(image_paths)} 个视频生成任务…")
-    result = gen.generate_clips(image_paths, durations, prompts, ids)
-
-    _info(f"视频片段: {result.ok}/{len(image_paths)} 成功")
-    if result.ok > 0:
-        _info(f"输出目录: {VIDEO_DIR}")
-    _info(f"耗时: {result.total_elapsed:.0f}s")
-
-    for t in result.tasks:
-        if t.status != "completed":
-            _fail(f"scene_{t.scene_id:02d}  {t.status}: {t.error[:80]}")
-
-    return VIDEO_DIR if result.ok > 0 else None
-
-
-# ═══════════════════════════════════════════════════════════════
-# 阶段五：视频合成
-# ═══════════════════════════════════════════════════════════════
-
-
-def phase_video(
-    storyboard: "StoryboardModel",
-    dry_run: bool,
-    video_dir: Optional[Path] = None,
-) -> Path:
-    _phase(5, TOTAL_PHASES, "正在合成视频 & 字幕叠加")
-
-    if dry_run:
-        _skip("干跑模式：跳过视频合成")
-        out = ROOT / "output" / "final" / "final_manju_video.mp4"
-        _info(f"（模拟输出路径: {out}）")
-        return out
-
-    from 核心.video_compiler import VideoCompiler
-
-    logger.info("开始视频合成…")
-    t0 = time.perf_counter()
-
-    compiler = VideoCompiler()
-    output_path = compiler.compile(storyboard, video_dir=video_dir)
-    elapsed = time.perf_counter() - t0
-
-    size_mb = output_path.stat().st_size / (1024 * 1024) if output_path.is_file() else 0
-
-    _done()
-    _info(f"输出文件: {output_path}")
-    _info(f"文件大小: {size_mb:.1f} MB")
-    _info(f"合成耗时: {elapsed:.1f}s")
-
-    return output_path
+    _done(f"共 {len(storyboards)} 集 {total_shots} 个镜头 Prompt")
 
 
 # ═══════════════════════════════════════════════════════════════
 # 主入口
 # ═══════════════════════════════════════════════════════════════
 
-
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="AI短剧制作自动流程 —— 一键视频生成流水线",
+        description="AI短剧制作自动流程 —— 小说→剧本→分镜→Prompt→视频",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
   python main.py
-  python main.py --input chapters/ch01.txt --series-title "第1集"
+  python main.py --input chapters/ch01.txt --title "我的短剧"
   python main.py --dry-run
-  python main.py --max-workers 4
+  python main.py --no-confirm                   # 非交互模式，跳过确认节点
         """,
     )
     parser.add_argument(
@@ -435,84 +531,126 @@ def main() -> None:
         help=f"输入小说文件路径 (默认: {DEFAULT_INPUT})",
     )
     parser.add_argument(
-        "--series-title", "-t", type=str, default="",
-        help="剧集标题 (留空由 DeepSeek 自动生成)",
-    )
-    parser.add_argument(
-        "--max-workers", "-w", type=int, default=6,
-        help="资产下载并发线程数 (默认: 6)",
+        "--title", "-t", type=str, default="",
+        help="短剧名称 (留空由 DeepSeek 自动生成)",
     )
     parser.add_argument(
         "--dry-run", action="store_true",
         help="干跑模式：跳过所有 API 调用，验证配置和代码完整性",
     )
     parser.add_argument(
-        "--characters", "-c", type=Path, default=None,
-        help="角色配置文件路径 (YAML/JSON)，用于角色视觉一致性和配音映射",
+        "--episodes", type=int, default=0,
+        help="手动指定分集数（0 表示由 AI 自动决定）",
+    )
+    parser.add_argument(
+        "--no-confirm", action="store_true",
+        help="非交互模式：跳过所有确认节点",
     )
     args = parser.parse_args()
 
     # ── 启动 ────────────────────────────────────────────────
     total_start = time.perf_counter()
 
-    characters, char_config_path = _load_characters(args.characters)
-
     print()
     print("╔" + "═" * 48 + "╗")
-    print("║" + "    📺  AI短剧制作自动流程".ljust(37) + "║")
+    print("║" + "    🎬  AI短剧制作自动流程".ljust(37) + "║")
     print("║" + f"    输入: {args.input.name}".ljust(37) + "║")
     mode = "DRY-RUN (不调用 API)" if args.dry_run else "正式运行"
     print("║" + f"    模式: {mode}".ljust(37) + "║")
-    if characters:
-        print("║" + f"    角色: {len(characters)} 人已加载".ljust(37) + "║")
+    if args.title:
+        print("║" + f"    短剧: {args.title}".ljust(37) + "║")
+    if args.no_confirm:
+        print("║" + "    确认: 跳过（非交互模式）".ljust(37) + "║")
     print("╚" + "═" * 48 + "╝")
     print()
 
-    # ── Phase 1 ─────────────────────────────────────────────
+    # ── Phase 1: 读取原文 ────────────────────────────────
     novel_text = phase_read_text(args.input)
 
-    # ── Phase 2 ─────────────────────────────────────────────
-    storyboard = phase_storyboard(
+    # ── Phase 2: 全剧设定 + 分集 ──────────────────────────
+    series_script = phase_outline(
         novel_text,
-        series_title=args.series_title,
-        dry_run=args.dry_run,
-        characters=characters,
-    )
-
-    # ── Phase 3 ─────────────────────────────────────────────
-    asset_result = phase_assets(
-        storyboard,
-        dry_run=args.dry_run,
-        max_workers=args.max_workers,
-        characters=characters,
-    )
-
-    if not args.dry_run and characters and char_config_path:
-        _update_character_refs(char_config_path, characters, asset_result.image_results, storyboard)
-
-    # ── Phase 4: Seedance 图生视频 ─────────────────────────
-    video_dir = phase_video_clips(
-        storyboard,
+        series_title=args.title,
         dry_run=args.dry_run,
     )
 
-    # ── Phase 5: 视频合成 ─────────────────────────────────
-    output_path = phase_video(
-        storyboard,
+    # ── 确认节点 A：角色肖像确认 ─────────────────────────
+    if not args.dry_run and not args.no_confirm:
+        from 核心.剧本.script_models import SCRIPT_DIR
+        from 核心.asset_library import AssetLibrary
+        asset_path = SCRIPT_DIR / f"{series_script.settings.title}_视觉资产库.json"
+        if asset_path.is_file():
+            asset_lib = AssetLibrary.load(asset_path)
+            _confirm_character_portraits(asset_lib, series_script.settings.title)
+
+    # ── Phase 3: 按集分镜 ────────────────────────────────
+    storyboards = phase_storyboard(
+        series_script,
+        novel_text,
         dry_run=args.dry_run,
-        video_dir=video_dir,
     )
+
+    # ── 确认节点 B：视频生成前确认肖像（如果之前没确认过）──
+    if not args.dry_run and not args.no_confirm:
+        from 核心.剧本.script_models import SCRIPT_DIR
+        from 核心.asset_library import AssetLibrary
+        asset_path = SCRIPT_DIR / f"{series_script.settings.title}_视觉资产库.json"
+        if asset_path.is_file():
+            asset_lib = AssetLibrary.load(asset_path)
+            has_refs = any(
+                ch.reference_image_path and Path(ch.reference_image_path).is_file()
+                for ch in asset_lib.characters
+            )
+            if has_refs:
+                _info("视频生成前角色肖像确认：")
+                for ch in asset_lib.characters:
+                    if ch.reference_image_path and Path(ch.reference_image_path).is_file():
+                        _info(f"  ✅ {ch.name}: {Path(ch.reference_image_path).name}")
+                choice = _print_menu(
+                    "确认角色参考图（将随每个镜头传入 Seedance API）",
+                    ["确认使用，开始生成视频", "重新选择肖像", "跳过参考图"],
+                )
+                if "重新选择" in choice:
+                    _confirm_character_portraits(asset_lib, series_script.settings.title)
+                elif "跳过" in choice:
+                    for ch in asset_lib.characters:
+                        ch.reference_image_path = ""
+                    asset_lib.save(asset_path)
+                    _info("已清空所有参考图")
+            else:
+                _info("无角色参考图，直接继续")
+
+    # ── Phase 4: Prompt + 视频生成 ──────────────────────
+    phase_prompts(
+        storyboards,
+        series_script,
+        dry_run=args.dry_run,
+    )
+
+    # ── 确认节点 C：生成结果确认 ─────────────────────────
+    if not args.dry_run and not args.no_confirm:
+        from 核心.剧本.script_models import EPISODE_DIR
+        first_ep_dir = EPISODE_DIR / "第01集"
+        video_dir = first_ep_dir / "视频"
+        if video_dir.is_dir():
+            videos = sorted(video_dir.glob("*.mp4"))
+            if videos:
+                _confirm_video_result(videos[0], "首集视频片段已生成")
+            else:
+                _confirm_video_result(first_ep_dir / "视频Prompt.json", "视频 Prompt 已生成")
 
     # ── 汇总 ────────────────────────────────────────────────
     total_elapsed = time.perf_counter() - total_start
+
+    total_episodes = len(series_script.episodes) if series_script else 0
+    total_shots = sum(len(s.shots) for s in storyboards) if storyboards else 0
 
     print()
     print("╔" + "═" * 48 + "╗")
     print("║" + "    ✅  流水线执行完毕".ljust(44) + "║")
     print("║" + f"    总耗时: {total_elapsed:.1f}s".ljust(39) + "║")
-    print("║" + f"    分镜数: {len(storyboard.scenes)}".ljust(39) + "║")
-    if not args.dry_run:
-        print("║" + f"    输出: {output_path.name}".ljust(39) + "║")
+    print("║" + f"    分集: {total_episodes} 集".ljust(39) + "║")
+    print("║" + f"    总镜数: {total_shots} 个".ljust(39) + "║")
     print("╚" + "═" * 48 + "╝")
     print()
 
